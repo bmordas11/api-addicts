@@ -49,3 +49,7 @@ bower.json
 # Ignore pow environment settings
 .powenv
 >>>>>>> 8b134cb8f239a020d28e62a00fd55fb299bfef8e
+
+/coverage
+
+.env
