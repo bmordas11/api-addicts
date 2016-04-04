@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 
+# Adding foundation to rails
+gem 'foundation-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
@@ -43,3 +45,6 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  gem 'coveralls', require: false
+end
