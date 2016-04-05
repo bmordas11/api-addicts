@@ -31,11 +31,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-end
+gem 'simple_form'
+gem 'devise'
+gem 'foundation-rails'
+gem 'foundation_rails_helper'
+gem 'factory_girl_rails'
+gem 'factory_girl'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -45,6 +46,12 @@ group :development do
   gem 'spring'
 end
 
-group :test do
-  gem 'coveralls', require: false
+group :development, :test do
+  gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'factory_girl'
+  gem 'valid_attribute'
+  gem 'shoulda-matchers', require: false
 end
