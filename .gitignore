@@ -52,4 +52,6 @@ bower.json
 
 /coverage
 
-.env
+/.env
+
+/rootkey.csv
