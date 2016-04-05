@@ -1,0 +1,15 @@
+New API Creation Page
+
+<%= form_for @api do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :url, "URL" %>
+  <%= f.text_field :url %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  Paid?
+  <%= f.collection_radio_buttons(:paid, [[true, "Yes."], [false, "No."]], :first, :last) %>
+
+  <%= f.submit "Create API" %>
+<% end %>

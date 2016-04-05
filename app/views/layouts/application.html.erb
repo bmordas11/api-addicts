@@ -4,26 +4,39 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <% flash.each do |name, msg| %>
+      <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+    <% end %>
+
     <div class="top-bar">
       <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
           <li class="menu-text">Site Title</li>
+          <li><a href=<%= new_api_path %>>Add New</a></li>
+          <li><a href=<%= apis_path %>>View All by Category</a></li>
+          <li><a href="#">View All by Popularity</a></li>
+          <li><a href="#">Show Random</a></li>
           <li>
-            <a href="#">One</a>
+            <a href="#">Roll Dice</a>
             <ul class="menu vertical">
-              <li><a href="#">One</a></li>
               <li><a href="#">Two</a></li>
               <li><a href="#">Three</a></li>
+              <li><a href="#">Four</a></li>
+              <li><a href="#">Six</a></li>
+              <li><a href="#">Eight</a></li>
+              <li><a href="#">Ten</a></li>
+              <li><a href="#">Twelve</a></li>
+              <li><a href="#">Twenty</a></li>
             </ul>
-          </li>
-          <li><a href="#">Two</a></li>
-          <li><a href="#">Three</a></li>
+          <li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">My Profile</a></li>
         </ul>
       </div>
       <div class="top-bar-right">
         <ul class="menu">
           <li><input type="search" placeholder="Search"></li>
-          <li><button type="button" class="button">Search</button></li>
+          <li><button type="button" class="button">SEARCH</button></li>
         </ul>
       </div>
     </div>
