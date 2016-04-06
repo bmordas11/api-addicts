@@ -34,6 +34,7 @@ feature "user can view an API show page" do
   scenario "user sees an api list for not free API" do
     visit root_path
     click_link "MBTA in MA"
+
     expect(page).to have_content(api2.name)
     expect(page).to have_content(api2.url)
     expect(page).to have_content(api2.description)

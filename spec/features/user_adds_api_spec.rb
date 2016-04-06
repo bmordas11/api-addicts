@@ -16,10 +16,12 @@ feature "user adds a new api" do
     visit root_path
     click_link "Add New"
 
-    expect(page).to have_content("Name")
-    expect(page).to have_content("URL")
-    expect(page).to have_content("Description")
+    expect(page).to have_field("Name")
+    expect(page).to have_field("URL")
+    expect(page).to have_field("Description")
     expect(page).to have_content("Paid?")
+    expect(page).to have_field('api_paid_true', type: 'radio')
+    expect(page).to have_field('api_paid_false', type: 'radio')
   end
 
   scenario "successfully adds a paid api" do
