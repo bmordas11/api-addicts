@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <div class=flash_messages>
+      <%= display_flash_messages %>
+    </div>
     <div class="top-bar">
       <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
@@ -22,6 +24,12 @@
       </div>
       <div class="top-bar-right">
         <ul class="menu">
+          <% if user_signed_in? %>
+            <li><%= link_to 'Sign Out', '#' %></li>
+          <% else %>
+            <li><%= link_to 'Sign In', new_user_session_path %>
+            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+          <% end %>
           <li><input type="search" placeholder="Search"></li>
           <li><button type="button" class="button">Search</button></li>
         </ul>
@@ -31,7 +39,8 @@
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag "application",
+      'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
 
