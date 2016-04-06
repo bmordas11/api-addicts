@@ -1,9 +1,12 @@
-<h2><%= @the_api.name %></h2>
+<h2><%= @api.name %></h2>
 
-<%= @the_api.name %>
-<%= @the_api.url %>
-<%= @the_api.description %>
-<% if @the_api.paid %>
+<p>
+  <%= @api.name %>
+  <%= @api.url %>
+  <%= @api.description %>
+</p>
+
+<% if @api.paid %>
   <p>This API is not free! (It costs money)</p>
 <% else %>
   <p>This API is free!</p>

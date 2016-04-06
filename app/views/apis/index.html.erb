@@ -1,6 +1,6 @@
 API Index Page
 
-<div class="apis">
+<ul class="apis">
   <% @apis.each do |api| %>
     <li>
       <%= link_to(api.name, api_path(api)) %>
@@ -8,4 +8,4 @@ API Index Page
       <%= api.description %>
     </li>
   <% end %>
-</div>
+</ul>

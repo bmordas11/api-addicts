@@ -8,12 +8,11 @@ class ApisController < ApplicationController
   end
 
   def show
-    @the_api = Api.find(params[:id])
+    @api = Api.find(params[:id])
   end
 
   def create
     @api = Api.new(api_params)
-
     if @api.save
       flash[:success] = "New API Created!"
       redirect_to api_path(@api)
@@ -25,7 +24,7 @@ class ApisController < ApplicationController
   end
 
   private
-  
+
   def api_params
     params.require(:api).permit(:name, :url, :description, :paid)
   end
