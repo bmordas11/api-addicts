@@ -20,17 +20,9 @@ ActiveRecord::Schema.define(version: 20160405152355) do
     t.string   "name",        null: false
     t.string   "url",         null: false
     t.text     "description", null: false
+    t.boolean  "paid",        null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "api_id"
-    t.string  "title"
-    t.text    "body"
-    t.integer "up_vote"
-    t.integer "down_vote"
   end
 
   create_table "users", force: :cascade do |t|

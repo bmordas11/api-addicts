@@ -1,1 +1,11 @@
-API Index Page
+<h1> API Index Page </h1>
+
+<ul class="apis">
+  <% @apis.each do |api| %>
+    <li>
+      <%= link_to(api.name, api_path(api)) %>
+      <%= api.url %>
+      <%= api.description %>
+    </li>
+  <% end %>
+</ul>
