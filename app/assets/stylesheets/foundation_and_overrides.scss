@@ -3,8 +3,6 @@
 @import 'settings';
 @import 'foundation';
 
-// @import 'motion-ui/motion-ui';
-
 @include foundation-global-styles;
 @include foundation-grid;
 @include foundation-typography;
@@ -40,6 +38,3 @@
 @include foundation-title-bar;
 @include foundation-tooltip;
 @include foundation-top-bar;
-
-// @include motion-ui-transitions;
-// @include motion-ui-animations;

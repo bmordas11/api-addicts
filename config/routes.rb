@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  root "apis#index"
-
+  root 'users#index'
   resources :apis, only: [:index, :show, :new, :create]
-  resource :api_by_category, only: [:index]
-  resource :api_by_rating, only: [:index]
+  resources :users, only: [:index]
+  devise_for :users, controllers: { registrations: 'registrations' }
 end

@@ -22,7 +22,7 @@ feature "user can view an API show page" do
   end
 
   scenario "user sees an api list for free API" do
-    visit root_path
+    visit apis_path
     click_link "Weather API for Noobs"
 
     expect(page).to have_content(api1.name)
@@ -32,7 +32,7 @@ feature "user can view an API show page" do
   end
 
   scenario "user sees an api list for not free API" do
-    visit root_path
+    visit apis_path
     click_link "MBTA in MA"
 
     expect(page).to have_content(api2.name)

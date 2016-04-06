@@ -21,7 +21,7 @@ feature "user can view a list of apis" do
     )
   end
   scenario "user sees an api list" do
-    visit root_path
+    visit apis_path
 
     expect(page).to have_content(api1.name)
     expect(page).to have_content(api1.url)
