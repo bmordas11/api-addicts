@@ -5,10 +5,10 @@ require "rails_helper"
 feature "user adds a new api" do
   let!(:api1) do
     Api.create(
-      name: "Weather API for Noobs",
-      url: "www.wunderground.com/something123456789",
-      paid: false,
-      description: "This is a weather API that shows people weather."
+    name: "Weather API for Noobs",
+    url: "www.wunderground.com/something123456789",
+    paid: false,
+    description: "This is a weather API that shows people weather."
     )
   end
 
