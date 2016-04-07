@@ -16,7 +16,7 @@ class ApisController < ApplicationController
 
   def create
     @api = Api.new(api_params)
-    @api.user = User.find(session["warden.user.user.key"][0][0])
+    @api.user = current_user
     if @api.save
       flash[:success] = "New API Created!"
       redirect_to api_path(@api)

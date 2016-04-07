@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.api = @api
     @review.rating = params[:review][:rating].to_i
-    @review.user = User.find(session["warden.user.user.key"][0][0])
+    @review.user = current_user
     @reviews = @api.reviews.order(created_at: :asc)
 
     if @review.save
