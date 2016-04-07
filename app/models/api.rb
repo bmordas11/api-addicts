@@ -5,5 +5,6 @@ class Api < ActiveRecord::Base
   validates :description, presence: true
 
   has_many :reviews
+  has_many :apitags
   has_many :tags, through: :apitags
 end
