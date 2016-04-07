@@ -27,7 +27,6 @@ feature "user can view a list of apis" do
 
   scenario "user sees an api list" do
     visit apis_path
-
     expect(page).to have_content(weather.name)
     expect(page).to have_content(weather.url)
     expect(page).to have_content(mbta.name)

@@ -14,7 +14,7 @@ weather = Api.create(
   user: paul
 )
 
-mbta = Api.create(
+Api.create(
   name: "MBTA in MA",
   url: "www.mbtanicenice.com/indoooowww/osaoosossa/o222224",
   description: "This is an awesome MBTA times API. IT WILL CHANGE YOUR WORLD.",
@@ -22,7 +22,7 @@ mbta = Api.create(
   user: paul
 )
 
-weather_rating = Review.create(
+Review.create(
   title: "Worst Weather API!",
   body: "It said it would rain, I hate it!",
   rating: 1,

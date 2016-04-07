@@ -28,7 +28,6 @@ feature "user can view an API show page" do
   scenario "user sees an api list for free API" do
     visit apis_path
     click_link "Weather API for Noobs"
-
     expect(page).to have_content(weather.name)
     expect(page).to have_content(weather.url)
     expect(page).to have_content(weather.description)
@@ -38,7 +37,6 @@ feature "user can view an API show page" do
   scenario "user sees an api list for not free API" do
     visit apis_path
     click_link "MBTA in MA"
-
     expect(page).to have_content(mbta.name)
     expect(page).to have_content(mbta.url)
     expect(page).to have_content(mbta.description)

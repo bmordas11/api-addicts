@@ -7,11 +7,11 @@ feature "user adds a new review" do
 
   let!(:weather) do
     Api.create!(
-    name: "Weather API for Noobs",
-    url: "www.wunderground.com/something123456789",
-    description: "This is a weather API that shows people weather.",
-    paid: false,
-    user: user1
+      name: "Weather API for Noobs",
+      url: "www.wunderground.com/something123456789",
+      description: "This is a weather API that shows people weather.",
+      paid: false,
+      user: user1
     )
   end
 
