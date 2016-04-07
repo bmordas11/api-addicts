@@ -2,12 +2,12 @@
 
 <p>
   <%= form_for @api do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.label :url, "URL" %>
-    <%= f.text_field :url %>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.label :name, 'Name:' %>
+    <%= f.text_field :name, label: false %>
+    <%= f.label :url, 'URL:' %>
+    <%= f.text_field :url, label: false %>
+    <%= f.label :description, 'Description:' %>
+    <%= f.text_field :description, label: false %>
 
     Paid?
     <%= f.collection_radio_buttons(:paid, [[true, "Yes."], [false, "No."]],

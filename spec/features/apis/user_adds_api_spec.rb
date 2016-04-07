@@ -3,17 +3,10 @@ require "rails_helper"
 # [x] I want to add a new API So others can see and review it
 
 feature "user adds a new api" do
-  let!(:api1) do
-    Api.create(
-      name: "Weather API for Noobs",
-      url: "www.wunderground.com/something123456789",
-      paid: false,
-      description: "This is a weather API that shows people weather."
-    )
-  end
+  let(:user1) { FactoryGirl.create(:user) }
 
   scenario "can add an api to the website" do
-    visit root_path
+    visit apis_path
     click_link "Add New"
 
     expect(page).to have_field("Name")
@@ -25,6 +18,14 @@ feature "user adds a new api" do
   end
 
   scenario "successfully adds a paid api" do
+    visit root_path
+
+    click_link 'Sign In'
+    fill_in 'Email', with: user1.email
+    fill_in 'Password', with: user1.password
+
+    click_button 'Sign In'
+
     visit root_path
     click_link "Add New"
 
@@ -40,6 +41,14 @@ feature "user adds a new api" do
   end
 
   scenario "successfully adds a free api" do
+    visit root_path
+
+    click_link 'Sign In'
+    fill_in 'Email', with: user1.email
+    fill_in 'Password', with: user1.password
+
+    click_button 'Sign In'
+
     visit root_path
     click_link "Add New"
 

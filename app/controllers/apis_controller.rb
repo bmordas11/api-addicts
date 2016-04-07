@@ -9,16 +9,20 @@ class ApisController < ApplicationController
 
   def show
     @api = Api.find(params[:id])
+    @review = Review.new
+    @reviews = @api.reviews
+    # @reviews = Reviews.find(params[:id])
   end
 
   def create
     @api = Api.new(api_params)
+    @api.user = User.find(session["warden.user.user.key"][0][0])
     if @api.save
       flash[:success] = "New API Created!"
       redirect_to api_path(@api)
     else
-      flash[:error] = @api.errors.full_messages.join(', ')
-      flash[:error] += ". API not created ya bum!"
+      flash[:failure] = @api.errors.full_messages.join(', ')
+      flash[:failure] += ". API not created ya bum!"
       render :new
     end
   end
