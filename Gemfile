@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'simple_form'
+gem 'kaminari'
 gem 'devise'
 gem 'foundation-rails'
 gem 'foundation_rails_helper'
