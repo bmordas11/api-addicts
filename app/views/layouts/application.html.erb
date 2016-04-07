@@ -14,30 +14,26 @@
           <li class="menu-text">Site Title</li>
           <li><%= link_to("Add New", new_api_path) %></li>
           <li><%= link_to("View All by Category", apis_path) %></li>
-          <li><a href="#">Two</a></li>
-          <li><a href="#">Three</a></li>
         </ul>
       </div>
       <div class="top-bar-right">
         <ul class="menu">
           <% if user_signed_in? %>
-            <li><%= link_to 'Sign Out', '#' %></li>
+          <li><%= link_to 'Sign Out', destroy_user_session_path %></li>
           <% else %>
-            <li><%= link_to 'Sign In', new_user_session_path %>
+          <li><%= link_to 'Sign In', new_user_session_path %>
             <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <% end %>
-          <li><input type="search" placeholder="Search"></li>
-          <li><button type="button" class="button">Search</button></li>
-        </ul>
+            <% end %>
+            <li><input type="search" placeholder="Search"></li>
+            <li><button type="button" class="button">Search</button></li>
+          </ul>
+        </div>
       </div>
-    </div>
-
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tags %>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
-</html>
+      <%= stylesheet_link_tag    "application" %>
+      <%= javascript_include_tag "application" %>
+      <%= csrf_meta_tags %>
+    </head>
+    <body>
+      <%= yield %>
+    </body>
+  </html>

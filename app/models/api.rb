@@ -6,4 +6,6 @@ class Api < ActiveRecord::Base
 
   belongs_to :user
   has_many :reviews, dependent: :destroy
+  has_many :api_tags
+  has_many :tags, through: :api_tags
 end

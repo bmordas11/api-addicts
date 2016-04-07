@@ -3,7 +3,8 @@ require "rails_helper"
 # [x] I want to add a new API So others can see and review it
 
 feature "user adds a new api" do
-  let(:user1) { FactoryGirl.create(:user) }
+  let!(:user1) { FactoryGirl.create(:user) }
+  let!(:api1) { FactoryGirl.create(:api) }
 
   scenario "can add an api to the website" do
     visit apis_path

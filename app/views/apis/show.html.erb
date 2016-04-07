@@ -4,6 +4,12 @@
   <%= @api.name %>
   <%= @api.url %>
   <%= @api.description %>
+  <br />
+  <% tags = "" %>
+    <% @api.tags.each do |tag| %>
+    <% tags += "#{tag.name} " %>
+    <% end %>
+  <%= "TAGS: #{tags} " %>
 </p>
 
 <% if @api.paid %>
