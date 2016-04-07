@@ -1,4 +1,4 @@
-class Apitag < ActiveRecord::Base
+class ApiTag < ActiveRecord::Base
   belongs_to :api
   belongs_to :tag
 end

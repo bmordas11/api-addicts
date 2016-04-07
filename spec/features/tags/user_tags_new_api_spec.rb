@@ -20,8 +20,8 @@ feature "user adds a new api with tags" do
 
   scenario "adds api with no tags" do
     visit root_path
-    click_link "Add New"
 
+    click_link "Add New"
     fill_in("Name", with: "apiai")
     fill_in("URL", with: "www.api.ai")
     fill_in("Description", with: "Right side of Gabby's brain.")
@@ -31,13 +31,13 @@ feature "user adds a new api with tags" do
     click_button "Create API"
     api = Api.where(name: "apiai").first
 
-    expect(api.tags.first).to  be(nil)
+    expect(api.tags.first).to be(nil)
   end
 
   scenario "Tags successfully display on show page" do
     visit root_path
-    click_link "Add New"
 
+    click_link "Add New"
     fill_in("Name", with: "apiai")
     fill_in("URL", with: "www.api.ai")
     fill_in("Description", with: "Right side of Gabby's brain.")

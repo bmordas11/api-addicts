@@ -1,6 +1,6 @@
 class CreateApiTags < ActiveRecord::Migration
   def change
-    create_table :apitags do |t|
+    create_table :api_tags do |t|
       t.belongs_to :api, null: false
       t.belongs_to :tag, null: false
 

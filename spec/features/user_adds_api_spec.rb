@@ -3,15 +3,7 @@ require "rails_helper"
 # [x] I want to add a new API So others can see and review it
 
 feature "user adds a new api" do
-  let!(:api1) do
-    Api.create(
-    name: "Weather API for Noobs",
-    url: "www.wunderground.com/something123456789",
-    paid: false,
-    description: "This is a weather API that shows people weather."
-    )
-  end
-
+  let!(:api1) { FactoryGirl.create(:api) }
   scenario "can add an api to the website" do
     visit root_path
     click_link "Add New"
