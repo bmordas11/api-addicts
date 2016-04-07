@@ -14,7 +14,7 @@ FactoryGirl.define do
     description "This is a weather API that shows people weather."
   end
   factory :review do
-    sequence(:body) { |n| "This is the #{n} best API I've ever used"}
+    sequence(:body) { |n| "This is the #{n} best API I've ever used" }
     rating 3
     user_id 1
     api_id 1
