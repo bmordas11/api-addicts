@@ -6,9 +6,9 @@
   <%= @api.description %>
   <br />
   <% tags = "" %>
-  <% @api.tags.each do |tag| %>
-  <% tags += "#{tag.name} " %>
-  <% end %>
+    <% @api.tags.each do |tag| %>
+    <% tags += "#{tag.name} " %>
+    <% end %>
   <%= "TAGS: #{tags} " %>
 </p>
 
