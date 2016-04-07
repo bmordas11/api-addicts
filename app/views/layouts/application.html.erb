@@ -4,10 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <% flash.each do |name, msg| %>
-    <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
-    <% end %>
-
     <div class=flash_messages>
       <%= display_flash_messages %>
     </div>
@@ -16,11 +12,6 @@
       <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
           <li class="menu-text">Site Title</li>
-          <li>
-            <a href="#">One</a>
-            <ul class="menu vertical">
-            </ul>
-          </li>
           <li><%= link_to("Add New", new_api_path) %></li>
           <li><%= link_to("View All by Category", apis_path) %></li>
         </ul>
@@ -38,7 +29,6 @@
           </ul>
         </div>
       </div>
-
       <%= stylesheet_link_tag    "application" %>
       <%= javascript_include_tag "application" %>
       <%= csrf_meta_tags %>

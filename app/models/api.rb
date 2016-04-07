@@ -4,7 +4,8 @@ class Api < ActiveRecord::Base
   validates :name, uniqueness: { scope: :url }
   validates :description, presence: true
 
-  has_many :reviews
+  belongs_to :user
+  has_many :reviews, dependent: :destroy
   has_many :api_tags
   has_many :tags, through: :api_tags
 end

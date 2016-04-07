@@ -9,23 +9,26 @@ class ApisController < ApplicationController
 
   def show
     @api = Api.find(params[:id])
+    @review = Review.new
+    @reviews = @api.reviews
   end
 
   def create
     params[:api][:tags] = params[:api][:tags].split(',')
-    @api = Api.new(api_params)
-    if @api.save
+    api = Api.new(api_params)
+    api.user = current_user
+    if api.save
       params[:api][:tags].each do |tag|
         new_tag = Tag.new(name: "#{tag}")
         new_tag.save
-        new_join = ApiTag.new(api: @api, tag: new_tag)
+        new_join = ApiTag.new(api: api, tag: new_tag)
         new_join.save
       end
       flash[:success] = "New API Created!"
-      redirect_to api_path(@api)
+      redirect_to api_path(api)
     else
-      flash[:error] = @api.errors.full_messages.join(', ')
-      flash[:error] += ". API not created ya bum!"
+      flash[:failure] = api.errors.full_messages.join(', ')
+      flash[:failure] += ". API not created ya bum!"
       render :new
     end
   end
