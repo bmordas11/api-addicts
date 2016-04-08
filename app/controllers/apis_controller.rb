@@ -17,6 +17,7 @@ class ApisController < ApplicationController
     params[:api][:tags] = params[:api][:tags].split(',')
     api = Api.new(api_params)
     api.user = current_user
+
     if api.save
       params[:api][:tags].each do |tag|
         new_tag = Tag.new(name: "#{tag}")

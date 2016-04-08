@@ -1,11 +1,13 @@
 require "rails_helper"
 
-# [x] I want to visit an API show page so I can review it
+# As a user
+# I want to visit an API show page
+# So that I can review it
 
 feature "user can view an API show page" do
   let!(:user1) { FactoryGirl.create(:user) }
   let!(:api1) { FactoryGirl.create(:api) }
-  let!(:api2) { FactoryGirl.create(:api) }
+  let!(:api2) { FactoryGirl.create(:api, paid: true) }
 
   scenario "user sees an api list for free API" do
     visit apis_path
