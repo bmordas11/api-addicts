@@ -2,10 +2,10 @@
 
 <ul class="apis">
   <% @apis.each do |api| %>
+    <h3><%=link_to(api.name, api_path(api))%></h3>
     <li>
-      <%= link_to(api.name, api_path(api)) %>
-      <%= api.url %>
-      <%= api.description %>
+      <%= "#{api.description}" %> <br />
+      <%= "Posted By: #{api.user.first_name} #{api.user.last_name}" %>
     </li>
   <% end %>
 </ul>

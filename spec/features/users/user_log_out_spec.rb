@@ -1,8 +1,12 @@
-require "rails_helper"
+require 'rails_helper'
 
-feature "user Sign Out" do
+#USER STORY:
+  # As a user
+  # I want to sign out
+
+feature 'user signs out' do
   let(:user2) { FactoryGirl.create(:user) }
-  scenario "authenticated user successfuly Signs Out" do
+  scenario 'authenticated user successfuly Signs Out' do
     visit root_path
 
     click_link 'Sign In'
@@ -10,7 +14,7 @@ feature "user Sign Out" do
     fill_in 'Password', with: user2.password
     click_button 'Sign In'
 
-    click_link "Sign Out"
+    click_link 'Sign Out'
     expect(page).to have_content('Signed out successfully.')
     expect(page).to_not have_content('Sign Out')
   end
