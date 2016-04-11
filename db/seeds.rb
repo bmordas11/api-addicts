@@ -1,7 +1,18 @@
-FactoryGirl.create(:user)
+20.times do
+  FactoryGirl.create(:user,
+    first_name: Faker::Name.first_name,
+    last_name:  Faker::Name.last_name,
+    email:      Faker::Internet.email)
+end
 
-FactoryGirl.create(:api)
+25.times do
+  FactoryGirl.create(:api, user_id: rand(1..20))
+end
 
-FactoryGirl.create(:api)
+15.times do
+  FactoryGirl.create(:api, user_id: rand(1..20), paid: false)
+end
 
-FactoryGirl.create(:review)
+100.times do
+  FactoryGirl.create(:review, api_id: rand(1..40), user_id: rand(1..20))
+end

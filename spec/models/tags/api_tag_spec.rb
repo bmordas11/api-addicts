@@ -7,7 +7,8 @@ RSpec.describe Api, type: :model do
       name: "Weather of Boston Api",
       url: "www.supercool.com/something123456789",
       paid: true,
-      description: "This is what you want."
+      description: "This is what you want.",
+      user_id: 1
     )
     test_tag = Tag.create(name: "image_recognition")
     ApiTag.create(api: test_api, tag: test_tag)

@@ -1,16 +1,10 @@
 <h2><%= @api.name %></h2>
 
 <p>
-  <%= @api.name %>
-  <%= @api.url %>
-  <%= @api.description %>
-  <br />
-  <% tags = "" %>
-    <% @api.tags.each do |tag| %>
-    <% tags += "#{tag.name} " %>
-    <% end %>
-  <%= "TAGS: #{tags} " %>
-</p>
+  <%= @api.url %> <br /><br />
+  <%= @api.description %><br />
+  <%= "Posted By: #{@api.user.first_name} #{@api.user.last_name}"%><br />
+  <%= "Posted On: #{@api.created_at.strftime("%m-%d-%Y")}"%><br />
 
 <% if @api.paid %>
   <p>This API is not free! (It costs money)</p>
@@ -18,11 +12,21 @@
   <p>This API is free!</p>
 <% end %>
 
+<% tags = "" %>
+  <% @api.tags.each do |tag| %>
+  <% tags += "#{tag.name} " %>
+  <% end %>
+<%= "TAGS: #{tags} " %>
+</p>
 <h3>Reviews for this API</h3>
 
-<% @reviews.each do |review|%>
-  <%= review.body %>
-  <%= review.rating %>
-<% end %>
+<ul>
+  <% @reviews.each do |review|%>
+    <li>
+      <%= review.body %>
+      <%= review.rating %>
+      <% end %>
+    </li>
+</ul>
 
 <%= render partial: 'new_review_form', object: @review %>

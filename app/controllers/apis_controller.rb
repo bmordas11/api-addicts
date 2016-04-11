@@ -1,6 +1,8 @@
 class ApisController < ApplicationController
+  APIS_PER_PAGE = 5
   def index
-    @apis = Api.all
+    apis = Api.all.order(created_at: :desc)
+    @apis = apis.paginate(page: params[:page], per_page: 5)
   end
 
   def new
@@ -17,6 +19,7 @@ class ApisController < ApplicationController
     params[:api][:tags] = params[:api][:tags].split(',')
     api = Api.new(api_params)
     api.user = current_user
+
     if api.save
       params[:api][:tags].each do |tag|
         new_tag = Tag.new(name: "#{tag}")
