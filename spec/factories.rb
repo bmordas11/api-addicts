@@ -19,4 +19,7 @@ FactoryGirl.define do
     user_id 1
     api_id 1
   end
+  factory :tag do
+    sequence(:name) { |n| "tag#{n}" }
+  end
 end

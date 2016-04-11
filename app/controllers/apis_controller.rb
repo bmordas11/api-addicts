@@ -1,6 +1,10 @@
 class ApisController < ApplicationController
   def index
-    @apis = Api.all
+    if params[:search]
+      @apis = Api.search(params[:search])
+    else
+      @apis = Api.all.order('created_at DESC')
+    end
   end
 
   def new
