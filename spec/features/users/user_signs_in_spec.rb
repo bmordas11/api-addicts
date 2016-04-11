@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 #USER STORY:
-  # As an unauthenticated User
-  # I want to sign in
+# As an unauthenticated User
+# I want to sign in
+# So I can post APIs & reviews
 
 feature 'user signs in' do
   let(:user1) { FactoryGirl.create(:user) }

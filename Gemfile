@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'simple_form'
 gem 'kaminari'
 gem 'devise'
+gem 'will_paginate'
 gem 'foundation-rails'
 gem 'foundation_rails_helper'
 

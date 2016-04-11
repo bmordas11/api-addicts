@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 #USER STORY:
-  # As an authenticated user
-  # I want to sign out
+# As an authenticated user
+# I want to sign out
+# So I can protect my security
 
 feature 'user signs out' do
   let(:user2) { FactoryGirl.create(:user) }

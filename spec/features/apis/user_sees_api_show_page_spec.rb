@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 #USER STORY:
-  # As an authenticated user
-  # I want to visit an API show page
-  # So I can review it
+# As an authenticated user
+# I want to visit an API show page
+# So I can review it
 
 feature 'user can view an API show page' do
   let!(:user)  { FactoryGirl.create(:user, id: 1) }

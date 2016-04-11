@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 #USER STORY:
-  # As an authenticated user
-  # I want to add a tag when I post and API
-  # So others can search for it more easily
+# As an authenticated user
+# I want to add a tag when I post and API
+# So others can search for it more easily
 
 feature 'user posts new api with tags' do
   let!(:user1) { FactoryGirl.create(:user) }
