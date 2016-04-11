@@ -2,7 +2,7 @@ class ApisController < ApplicationController
   APIS_PER_PAGE = 5
   def index
     apis = Api.all.order(created_at: :desc)
-    @apis = apis.paginate(page: params[:page], :per_page => 5)
+    @apis = apis.paginate(page: params[:page], per_page: 5)
   end
 
   def new
