@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-#USER STORY:
+# USER STORY:
 # As an authenticated user
 # I want to sign out
 # So I can protect my security

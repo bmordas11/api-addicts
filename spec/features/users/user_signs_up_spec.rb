@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-#USER STORY:
+# USER STORY:
 # As an unauthenticated User
 # I want to sign up with APIaddict
 # So I can use the app

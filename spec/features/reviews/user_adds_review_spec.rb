@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-#USER STORY:
+# USER STORY:
 # As an authenticated user
 # I want to add a new review for an API
 # So others can see and learn from it
