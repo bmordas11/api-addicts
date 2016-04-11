@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 #USER STORY:
-  # As a user
+  # As an authenticated user
   # I want to add a tag when I post and API
   # So others can search for it more easily
 

@@ -6,13 +6,13 @@
 end
 
 25.times do
-  FactoryGirl.create(:api, user_id: rand(20 + 1))
+  FactoryGirl.create(:api, user_id: rand(1..20))
 end
 
 15.times do
-  FactoryGirl.create(:api, user_id: rand(20 + 1), paid: false)
+  FactoryGirl.create(:api, user_id: rand(1..20), paid: false)
 end
 
 100.times do
-  FactoryGirl.create(:review, api_id: rand(40 + 1), user_id: rand(20 + 1))
+  FactoryGirl.create(:review, api_id: rand(1..40), user_id: rand(1..20))
 end

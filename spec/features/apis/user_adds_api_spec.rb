@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 #USER STORY:
-  # As a user
+  # As an authenticated user
   # I want to add a new API
   # So others can see and review it
 

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 #USER STORY:
-  # As a User
+  # As an unauthenticated User
   # I want to sign in
 
 feature 'user signs in' do

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 #USER STORY:
-  # As a user
+  # As an authenticated user
   # I want to visit an API show page
   # So I can review it
 

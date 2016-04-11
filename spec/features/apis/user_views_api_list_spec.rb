@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 #USER STORY:
-  # As a user
+  # As an authenticated user
   # I want to visit the API index page
   # So I can see what APIs there are
 
