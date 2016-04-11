@@ -1,14 +1,9 @@
 require 'rails_helper'
 
-#USER STORY:
-  # As an authenticated user
-  # I want to visit an API show page
-  # So I can review it
-
 feature 'user can view an API show page' do
   let!(:user)  { FactoryGirl.create(:user, id: 1) }
-  let!(:api1)  { FactoryGirl.create(:api, user_id: 1) }
-  let!(:api2)  { FactoryGirl.create(:api, user_id: 1, paid: true) }
+  let!(:api1)  { FactoryGirl.create(:api, user: user) }
+  let!(:api2)  { FactoryGirl.create(:api, user: user, paid: true) }
 
   scenario 'sees an api list for free API' do
     visit apis_path

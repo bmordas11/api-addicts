@@ -1,15 +1,18 @@
 require 'rails_helper'
 
-#USER STORY:
-  # As an authenticated user
-  # I want to add a new API
-  # So others can see and review it
-
 feature 'user adds a new api' do
   let!(:user) { FactoryGirl.create(:user, id: 1) }
 
   scenario 'can add an api to the website' do
-    visit apis_path
+    visit root_path
+
+    click_link 'Sign In'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+
+    click_button 'Sign In'
+
+    visit root_path
     click_link 'Add New'
     expect(page).to have_field('Name')
     expect(page).to have_field('URL')
