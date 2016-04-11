@@ -10,10 +10,10 @@ A web app for reviewing APIs of all kinds!
 Via our web interface users can post APIs to the site. Other users can also review, post, upvote, and downvote any given API.
 
 ##Developed By
-**Brett Mordas**
-**Matt Thompson**
-**Majid Ihsan**
-**Eric Fournier**
+* **Brett Mordas**
+* **Matt Thompson**
+* **Majid Ihsan**
+* **Eric Fournier**
 
 ##[Visit Hosted Site](https://api-addict.herokuapp.com/)
 
@@ -22,7 +22,9 @@ Via our web interface users can post APIs to the site. Other users can also revi
 
 ##Features
 **Unauthenticated user registers**
+
 **Authenticated user signs in & out**
+
 **Authenticated user adds a new API**
 * API has mandatory fields for `name` & `url & ``body`
 * API can be marked with `free` or `paid`
