@@ -16,6 +16,9 @@ gem 'foundation-rails'
 gem 'foundation_rails_helper'
 gem 'factory_girl_rails'
 gem 'factory_girl'
+gem 'dotenv-rails'
+gem 'mailgun_rails'
+gem 'actionmailer'
 
 group :development do
   gem 'web-console', '~> 2.0'

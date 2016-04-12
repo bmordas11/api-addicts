@@ -1,10 +1,6 @@
 require "rails_helper"
 
 feature "user adds a new review" do
-  # [x] As a User,
-  #     I want to add a new review for an API
-  #     So others can see and learn from it
-
   let!(:weather) do
     Api.create!(
       name: "Weather API for Noobs",
