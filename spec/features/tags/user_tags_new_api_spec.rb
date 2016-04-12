@@ -57,5 +57,7 @@ feature 'user posts new api with tags' do
 
     expect(page).to have_content('rubberduck')
     expect(page).to have_content('bumblebee')
+    expect(page).to have_content('New API Created!')
+
   end
 end

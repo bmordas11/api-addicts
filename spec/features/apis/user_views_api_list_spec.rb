@@ -2,11 +2,14 @@ require 'rails_helper'
 
 feature 'user can view a list of apis' do
   let!(:user)  { FactoryGirl.create(:user, id: 1) }
-  let!(:api1)  { FactoryGirl.create(:api, user_id: 1,
-    url: 'www.apiaddict.xyz/api') }
-  let!(:api2)  { FactoryGirl.create(:api, user_id: 1, paid: true,
-    url: 'www.apiaddict.xyz/api') }
-
+  let!(:api1)  do
+    FactoryGirl.create(:api, user: user,
+    url: 'www.apiaddict.xyz/api')
+  end
+  let!(:api2) do
+    FactoryGirl.create(:api, user: user, paid: true,
+    url: 'www.apiaddict.xyz/api')
+  end
   scenario 'sees a list of apis' do
     visit apis_path
 

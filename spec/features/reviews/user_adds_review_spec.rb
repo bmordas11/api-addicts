@@ -1,14 +1,9 @@
 require 'rails_helper'
 
-#USER STORY:
-  # As an authenticated user
-  # I want to add a new review for an API
-  # So others can see and learn from it
-
 feature 'user adds a new review' do
   let!(:user)  { FactoryGirl.create(:user, id: 1) }
-  let!(:api1)  { FactoryGirl.create(:api, user_id: 1) }
-  let!(:api2)  { FactoryGirl.create(:api, user_id: 1, paid: true) }
+  let!(:api1)  { FactoryGirl.create(:api, user: user) }
+  let!(:api2)  { FactoryGirl.create(:api, user: user, paid: true) }
 
   scenario 'successfully adds API review' do
     visit root_path

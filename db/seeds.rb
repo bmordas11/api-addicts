@@ -1,18 +1,18 @@
-20.times do
-  FactoryGirl.create(:user,
-    first_name: Faker::Name.first_name,
-    last_name:  Faker::Name.last_name,
-    email:      Faker::Internet.email)
-end
+user1 = User.create(first_name: "Richie",last_name: 'Cunningham',
+  email: "to@example.com", password: 'password',
+    password_confirmation: 'password')
 
-25.times do
-  FactoryGirl.create(:api, user_id: rand(1..20))
-end
+user2 = User.create(first_name: "Adam",last_name: 'Khan',
+  email: "beto@example.com", password: 'password123',
+    password_confirmation: 'password123')
 
-15.times do
-  FactoryGirl.create(:api, user_id: rand(1..20), paid: false)
-end
+api1 = Api.create(name: "google Api", url: "www.google.com",
+  description: "This is an awesome paid API", paid: true, user: user1)
 
-100.times do
-  FactoryGirl.create(:review, api_id: rand(1..40), user_id: rand(1..20))
-end
+api2 = Api.create(name: "google Api", url: "www.google.com",
+  description: "This is an awesome paid API", paid: true, user: user2)
+
+tag1 = Tag.create(name: "facebook")
+tag2 = Tag.create(name: "zacebook")
+
+ApiTag.create(api: api1, tag: tag1)
