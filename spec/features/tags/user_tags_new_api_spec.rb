@@ -17,10 +17,9 @@ feature "user adds a new api with tags" do
     choose("Yes.")
     fill_in("Tags", with: "Artificial Intelligence,Voice Processing")
     click_button "Create API"
-    api = Api.where(name: "apiai").first
 
-    expect(api.tags.first.name).to eq("Artificial Intelligence")
-    expect(api.tags.second.name).to eq("Voice Processing")
+    expect(page).to have_content("Artificial Intelligence")
+    expect(page).to have_content("Voice Processing")
   end
 
   scenario "adds api with no tags" do
