@@ -1,10 +1,5 @@
 require 'rails_helper'
 
-#USER STORY:
-  # As an authenticated user
-  # I want to add a new API
-  # So others can see and review it
-
 feature 'user adds a new api' do
   let!(:user) { FactoryGirl.create(:user, id: 1) }
 

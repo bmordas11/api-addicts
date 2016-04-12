@@ -1,10 +1,5 @@
 require 'rails_helper'
 
-#USER STORY:
-  # As an unauthenticated User
-  # I want to sign up with APIaddict
-  # So I can use the app
-
 feature 'user signs up' do
   scenario 'provides valid sign up information' do
     visit root_path

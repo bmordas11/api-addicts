@@ -3,9 +3,8 @@
 <ul class="apis">
   <% @apis.each do |api| %>
     <h3><%=link_to(api.name, api_path(api))%></h3>
-    <li>
-      <%= "#{api.description}" %> <br />
-      <%= "Posted By: #{api.user.first_name} #{api.user.last_name}" %>
-    </li>
+      <li style="margin-bottom: 10px;"><%= "#{api.description}" %></li>
+      <ul style="margin-bottom: 30px;"><%= "Posted By: #{api.user.first_name}
+        #{api.user.last_name}" %></ul>
   <% end %>
 </ul>

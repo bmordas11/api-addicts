@@ -1,9 +1,5 @@
 require 'rails_helper'
 
-#USER STORY:
-  # As an unauthenticated User
-  # I want to sign in
-
 feature 'user signs in' do
   let(:user1) { FactoryGirl.create(:user) }
   scenario 'provides valid credentials, successfully signs in' do

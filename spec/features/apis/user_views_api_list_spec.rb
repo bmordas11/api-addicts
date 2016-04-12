@@ -1,10 +1,5 @@
 require 'rails_helper'
 
-#USER STORY:
-  # As an authenticated user
-  # I want to visit the API index page
-  # So I can see what APIs there are
-
 feature 'user can view a list of apis' do
   let!(:user)  { FactoryGirl.create(:user, id: 1) }
   let!(:api1)  { FactoryGirl.create(:api, user_id: 1,
