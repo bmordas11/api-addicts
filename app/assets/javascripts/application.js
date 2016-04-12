@@ -1,1 +1,2 @@
-$(function(){ $(document).foundation(); });
+//= require jquery
+//= require jquery_ujs

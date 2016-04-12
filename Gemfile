@@ -34,4 +34,6 @@ group :development, :test do
   gem 'launchy'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
