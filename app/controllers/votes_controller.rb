@@ -1,5 +1,4 @@
 class VotesController < ApplicationController
-
   def upvote
     found = Votes.find_by(user: params[:user], api: params[:api_id])
 
@@ -9,14 +8,12 @@ class VotesController < ApplicationController
       render json: Votes.calculate_votes(params[:api_id])
       return
     end
-
     if found.user_vote == false
       found.user_vote = true
       found.save
       render json: Votes.calculate_votes(params[:api_id])
       return
     end
-    
     render json: Votes.calculate_votes(params[:api_id])
   end
 
@@ -29,14 +26,12 @@ class VotesController < ApplicationController
       render json: Votes.calculate_votes(params[:api_id])
       return
     end
-
     if found.user_vote == true
       found.user_vote = false
       found.save
       render json: Votes.calculate_votes(params[:api_id])
       return
     end
-
     render json: Votes.calculate_votes(params[:api_id])
   end
 end

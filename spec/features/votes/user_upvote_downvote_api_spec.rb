@@ -17,11 +17,11 @@ feature "user upvotes and downvotes APIs" do
     click_link api1.name
 
     within('div#upvote') do
-     expect(page).to have_content("0")
+      expect(page).to have_content("0")
     end
 
     within('div#downvote') do
-     expect(page).to have_content("0")
+      expect(page).to have_content("0")
     end
   end
 
@@ -40,11 +40,11 @@ feature "user upvotes and downvotes APIs" do
 
     find('div#upvote').click
     within('div#upvote') do
-     expect(page).to have_content("1")
+      expect(page).to have_content("1")
     end
 
     within('div#downvote') do
-     expect(page).to have_content("0")
+      expect(page).to have_content("0")
     end
 
   end
@@ -55,11 +55,11 @@ feature "user upvotes and downvotes APIs" do
 
     find('div#upvote').click
     within('div#upvote') do
-     expect(page).to have_content("0")
+      expect(page).to have_content("0")
     end
 
     within('div#downvote') do
-     expect(page).to have_content("0")
+      expect(page).to have_content("0")
     end
   end
 

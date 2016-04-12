@@ -7,8 +7,6 @@ end
 require 'spec_helper'
 require 'rspec/rails'
 require 'factory_girl_rails'
-require 'support/wait_for_ajax'
-
 
 ActiveRecord::Migration.maintain_test_schema!
 
