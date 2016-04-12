@@ -12,7 +12,7 @@ class Api < ActiveRecord::Base
   def self.search(search)
     results = []
     tags = Tag.search(search)
-    results += (tags.map{ |tag| tag.apis })[0] unless tags.empty?
+    results += (tags.map { |tag| tag.apis })[0] unless tags.empty?
     results += where("name LIKE ?", "%#{search}%")
     results += where("description LIKE ?", "%#{search}%")
     results += where("url LIKE ?", "%#{search}%")
