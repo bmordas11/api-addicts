@@ -14,8 +14,8 @@ gem 'kaminari'
 gem 'devise'
 gem 'foundation-rails'
 gem 'foundation_rails_helper'
-gem 'factory_girl_rails'
-gem 'factory_girl'
+gem 'carrierwave'
+gem 'dotenv-rails'
 
 group :development do
   gem 'web-console', '~> 2.0'
@@ -32,6 +32,9 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
+  gem 'faker'
+  gem 'factory_girl_rails'
+  gem 'factory_girl'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
 end
