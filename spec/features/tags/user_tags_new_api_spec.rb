@@ -37,9 +37,8 @@ feature "user adds a new api with tags" do
     choose("Yes.")
     fill_in("Tags", with: "")
     click_button "Create API"
-    api = Api.where(name: "apiai").first
 
-    expect(api.tags.first).to be(nil)
+    expect(page).to have_content("apiai")
   end
 
   scenario "Tags successfully display on show page" do
