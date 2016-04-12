@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'user adds a new review' do
-  let!(:user)  { FactoryGirl.create(:user, id: 1) }
+  let!(:user)  { FactoryGirl.create(:user) }
   let!(:api1)  { FactoryGirl.create(:api, user: user) }
   let!(:api2)  { FactoryGirl.create(:api, user: user, paid: true) }
 

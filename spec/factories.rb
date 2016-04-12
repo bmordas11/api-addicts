@@ -11,12 +11,12 @@ FactoryGirl.define do
     sequence(:url)  { |n| "www.apiaddict.xyz/api#{n}" }
     description 'This is an awesome paid API.'
     paid false
-    user_id 1
+    association :user, factory: :user
   end
   factory :review do
     sequence(:body) { |n| "Of all the APIs, this is my ##{n} favorite." }
     rating 3
-    user_id 1
-    api_id 1
+    association :user, factory: :user
+    association :api, factory: :api
   end
 end

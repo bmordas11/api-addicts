@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'user can view a list of apis' do
-  let!(:user)  { FactoryGirl.create(:user, id: 1) }
+  let!(:user)  { FactoryGirl.create(:user) }
   let!(:api1)  do
     FactoryGirl.create(:api, user: user,
     url: 'www.apiaddict.xyz/api')

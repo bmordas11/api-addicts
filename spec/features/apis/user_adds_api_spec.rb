@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'user adds a new api' do
-  let!(:user) { FactoryGirl.create(:user, id: 1) }
+  let!(:user) { FactoryGirl.create(:user) }
 
   scenario 'can add an api to the website' do
     visit apis_path
