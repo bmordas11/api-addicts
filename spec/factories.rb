@@ -11,6 +11,8 @@ FactoryGirl.define do
     url "www.wunderground.com/something123456789"
     description "This is a weather API that shows people weather."
     paid false
+    trait (:paid) { paid true}
+    trait (:free) { paid false}
     user_id 1
   end
   factory :review do
