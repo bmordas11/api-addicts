@@ -1,5 +1,4 @@
 require "rails_helper"
-
 RSpec.describe Api, type: :model do
   let!(:user) { FactoryGirl.create(:user) }
   it "has a tag associated with it" do
@@ -12,9 +11,7 @@ RSpec.describe Api, type: :model do
     )
     test_tag = Tag.create(name: "image_recognition")
     ApiTag.create(api: test_api, tag: test_tag)
-
     result = test_api.tags.first.name
-
     expect(result).to eq("image_recognition")
   end
 end

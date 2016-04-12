@@ -8,4 +8,13 @@ class Api < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
   has_many :api_tags
   has_many :tags, through: :api_tags
+
+  def self.add_tags(api, tags)
+    tags.each do |tag|
+      new_tag = Tag.new(name: "#{tag}")
+      new_tag.save
+      new_join = ApiTag.new(api: api, tag: new_tag)
+      new_join.save
+    end
+  end
 end
