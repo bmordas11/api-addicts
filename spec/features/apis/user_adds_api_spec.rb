@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+
 feature 'user adds a new api' do
   let!(:user) { FactoryGirl.create(:user) }
 

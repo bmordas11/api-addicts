@@ -12,6 +12,8 @@ FactoryGirl.define do
     description 'This is an awesome paid API.'
     paid false
     association :user, factory: :user
+    trait (:paid) { paid true}
+    trait (:free) { paid false}
   end
   factory :review do
     sequence(:body) { |n| "Of all the APIs, this is my ##{n} favorite." }

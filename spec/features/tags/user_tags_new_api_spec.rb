@@ -28,6 +28,7 @@ feature 'user posts new api with tags' do
     click_button 'Sign In'
 
     visit root_path
+
     click_link 'Add New'
     fill_in('Name', with: 'apiai')
     fill_in('URL', with: 'www.api.ai')
@@ -37,6 +38,7 @@ feature 'user posts new api with tags' do
     click_button 'Create API'
 
     expect(page).to have_content('New API Created!')
+    expect(page).to have_content("apiai")
   end
 
   scenario 'views tags on api show page' do

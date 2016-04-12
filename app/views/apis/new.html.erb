@@ -1,7 +1,7 @@
 <h2>New API Creation Page</h2>
 
 <p>
-  <%= form_for @api do |f| %>
+  <%= form_for Api.new do |f| %>
     <%= f.text_field :name, id: "Name" %>
     <%= f.text_field :url, id: "URL" %>
     <%= f.text_field :description, id: "Description" %>
