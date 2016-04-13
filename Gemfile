@@ -14,6 +14,8 @@ gem 'kaminari'
 gem 'devise'
 gem 'foundation-rails'
 gem 'foundation_rails_helper'
+gem "administrate", "~> 0.1.5"
+gem 'carrierwave'
 
 group :development do
   gem 'web-console', '~> 2.0'
