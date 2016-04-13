@@ -27,10 +27,11 @@ class ApiDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
+    :name,
     :user,
-    :reviews,
-    :api_tags,
     :tags,
+    :description,
+    :created_at,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -38,8 +39,6 @@ class ApiDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :user,
     :reviews,
-    :api_tags,
-    :tags,
     :id,
     :name,
     :url,
@@ -53,10 +52,6 @@ class ApiDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :user,
-    :reviews,
-    :api_tags,
-    :tags,
     :name,
     :url,
     :description,
@@ -66,7 +61,7 @@ class ApiDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how apis are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(api)
-  #   "Api ##{api.id}"
-  # end
+  def display_resource(api)
+    "Api ##{api.id} - #{api.name}"
+  end
 end

@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :users
-resources :apis
-resources :api_tags
-resources :reviews
-resources :tags
+    resources :apis
 
     root to: "users#index"
   end
