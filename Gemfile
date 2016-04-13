@@ -16,6 +16,8 @@ gem 'foundation-rails'
 gem 'foundation_rails_helper'
 gem 'factory_girl_rails'
 gem 'factory_girl'
+gem "administrate", "~> 0.1.5"
+gem 'carrierwave'
 
 group :development do
   gem 'web-console', '~> 2.0'
