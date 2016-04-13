@@ -5,6 +5,7 @@ FactoryGirl.define do
     last_name 'Cunningham'
     password 'password'
     password_confirmation 'password'
+    admin false
   end
   factory :api do
     sequence(:name) { |n| "API ##{n}" }
