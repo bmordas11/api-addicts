@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :apis, dependent: :destroy
   has_many :reviews, dependent: :destroy
+
+  def name
+    "#{self.first_name} #{self.last_name}"
+  end
 end
