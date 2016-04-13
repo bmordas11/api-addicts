@@ -56,7 +56,6 @@ feature "user upvotes and downvotes APIs" do
     within('div#upvote') do
       expect(page).to have_content("0")
     end
-
     within('div#downvote') do
       expect(page).to have_content("0")
     end
