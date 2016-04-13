@@ -1,5 +1,5 @@
 <h2><%= @api.name %></h2>
-
+<%= hidden_field(:api, :id, value: @api.id) %>
 <p>
   <table>
   <%= @api.name %>
@@ -30,51 +30,4 @@
 
 <%= render partial: 'new_review_form', object: @review %>
 
-<script>
-var current_user;
-
-<% if current_user == nil  %>
-  var current_user = -1
-<% else %>
-  var current_user = "<%= escape_javascript(current_user.id.to_s) %>"
-<% end %>
-
-window.onload = init();
-
-function init(){
-  if(current_user != -1){
-    document.getElementById("upvote").addEventListener("click", upVote);
-    document.getElementById("downvote").addEventListener("click", downVote);
-  }
-}
-
-function upVote() {
-  console.log("upvote clicked")
-  var request = $.ajax({
-    method: "GET",
-    url: '/votes/upvote/',
-    data: { user: current_user,
-     api_id: "<%= escape_javascript(@api.id.to_s) %>" }
-  });
-
-  request.done(function(data) {
-    document.getElementById("upvote").textContent = data["upvotes"]
-    document.getElementById("downvote").textContent = data["downvotes"]
-  });
-}
-
-function downVote() {
-  console.log("down clicked")
-  var request = $.ajax({
-    method: "GET",
-    url: '/votes/downvote/',
-    data: { user: current_user,
-     api_id: "<%= escape_javascript(@api.id.to_s) %>" }
-  });
-
-  request.done(function(data) {
-    document.getElementById("upvote").textContent = data["upvotes"]
-    document.getElementById("downvote").textContent = data["downvotes"]
-  });
-}
-</script>
+<%= javascript_include_tag "votes.js" %>
