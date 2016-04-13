@@ -3,8 +3,10 @@ class VotesController < ApplicationController
     found = Votes.find_by(user: params[:user], api: params[:api_id])
 
     if found == nil
-      Votes.create(user: User.find(params[:user]),
-        api: Api.find(params[:api_id]), user_vote: true)
+      Votes.create(
+        user: User.find(params[:user]),
+        api: Api.find(params[:api_id]),
+        user_vote: true)
       render json: Votes.calculate_votes(params[:api_id])
       return
     end
@@ -21,8 +23,10 @@ class VotesController < ApplicationController
     found = Votes.find_by(user: params[:user], api: params[:api_id])
 
     if found == nil
-      Votes.create(user: User.find(params[:user]),
-        api: Api.find(params[:api_id]), user_vote: false)
+      Votes.create(
+        user: User.find(params[:user]),
+        api: Api.find(params[:api_id]),
+        user_vote: false)
       render json: Votes.calculate_votes(params[:api_id])
       return
     end
