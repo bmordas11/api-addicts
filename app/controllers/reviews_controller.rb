@@ -12,7 +12,9 @@ class ReviewsController < ApplicationController
     review = Review.new(review_params)
     review.user = current_user
     review.api = api
+
     if review.save
+      # ReviewMailer.send_new_review_message(review)
       ReviewMailer.new_review(review).deliver_later
       flash[:success] = 'Review Submitted!'
     else

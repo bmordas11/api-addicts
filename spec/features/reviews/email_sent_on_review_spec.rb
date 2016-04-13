@@ -18,6 +18,7 @@ feature "user that made api is emailed on a new review" do
     click_button 'Add Review'
 
     expect(page).to have_content('Some kind of wonderful.')
+    expect(ReviewMailer.deliveries.count).to eq(1)
     expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 end
