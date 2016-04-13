@@ -32,9 +32,9 @@ module Api::V1
 
     def create_vote(api_id, user_id, vote_bool)
       Votes.create(
-      user: User.find(user_id),
-      api: Api.find(api_id),
-      user_vote: vote_bool)
+        user: User.find(user_id),
+        api: Api.find(api_id),
+        user_vote: vote_bool)
     end
 
     def flip_vote(vote)
@@ -55,6 +55,5 @@ module Api::V1
     def warden
       env['warden']
     end
-
   end
 end

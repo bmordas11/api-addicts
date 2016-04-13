@@ -46,7 +46,6 @@ feature "user upvotes and downvotes APIs" do
     within('div#downvote') do
       expect(page).to have_content("0")
     end
-
   end
 
   scenario "signed out user upvotes an api no vote is added", js: true do
@@ -62,5 +61,4 @@ feature "user upvotes and downvotes APIs" do
       expect(page).to have_content("0")
     end
   end
-
 end
