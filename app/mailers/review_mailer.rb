@@ -11,7 +11,7 @@ class ReviewMailer < ApplicationMailer
     RestClient.post "https://api:#{ENV['MAILGUN_API_KEY']}"\
       "@api.mailgun.net/v3/#{ENV['MAILGUN_DOMAIN']}/messages",
       from: "Excited User <mailgun@#{ENV['MAILGUN_DOMAIN']}>",
-      to: "brett.mordas@gmail.com, brett.mordas@gmail.com",
+      to: "Brett Mordas <thebeanman100@yahoo.com>",
       subject: "Hello",
       text: "Testing some Mailgun awesomness! #{review.body}"
   end
