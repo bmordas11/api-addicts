@@ -1,13 +1,20 @@
-<h2>New API Creation Page</h2>
-<p>
-  <%= form_for Api.new do |f| %>
-    <%= f.text_field :name, id: "Name", value: @api.name %>
-    <%= f.text_field :url, id: "URL", value: @api.url %>
-    <%= f.text_field :description, id: "Description", value: @api.description  %>
-    <%= f.text_field :tags, value: "", id: "Tags" %>
-    Paid?
-    <%= f.collection_radio_buttons(:paid, [[true, "Yes."], [false, "No."]],
-      :first, :last) %>
-    <%= f.submit "Create API" %>
-  <% end %>
-</p>
+
+<div class="body-background">
+  <div class="detail-text-medium">
+    New API Creation Page
+  </div>
+  <div="row">
+    <div class="medium-8 medium-centered columns">
+      <%= form_for Api.new do |f| %>
+        <%= f.text_field :name, id: "Name", value: @api.name,  style: 'display: block; background-color: #7C8C91;' %>
+        <%= f.text_field :url, id: "URL", value: @api.url, style: 'display: block; background-color: #7C8C91;' %>
+        <%= f.text_field :description, id: "Description", value: @api.description, style:  'display: block; background-color: #7C8C91;' %>
+        <%= f.text_field :tags, value: "", id: "Tags", style: 'display: block; background-color: #7C8C91;' %>
+        Paid?
+        <%= f.collection_radio_buttons(:paid, [[true, "Yes."], [false, "No."]],
+        :first, :last) %>
+        <%= f.submit "Create API" %>
+      <% end %>
+    </div>
+  </div>
+</div>

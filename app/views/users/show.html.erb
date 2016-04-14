@@ -1,5 +1,6 @@
 <%= link_to "Delete User", @user, method: :delete, data: {confirm: "Really wanna delete this USER?"} %>
 <h1><%="#{@user.first_name} #{@user.last_name}"%></h1>
+<%= image_tag(@user.profile_photo, size: "140") %>
 <h2><%=@user.email%></h2>
 <h3>Apis Posted by <%= @user.first_name %></h3>
 <% @apis.each do |api| %>

@@ -2,7 +2,22 @@ class ApisController < ApplicationController
   before_filter :authenticate_user!, except: [:show, :index]
 
   def index
-    @apis = Api.all
+    @apis = if params[:search]
+              Api.search(params[:search])
+            else
+              Api.all.order('created_at DESC')
+            end
+  end
+
+  def random
+    @api = Api.all.sample
+    @review = Review.new
+    @reviews = @api.reviews
+    render :show
+  end
+
+  def about
+    render :about
   end
 
   def new
@@ -13,6 +28,8 @@ class ApisController < ApplicationController
     @api = Api.find(params[:id])
     @review = Review.new
     @reviews = @api.reviews
+    @upvotes = Votes.where(user_vote: true, api: @api).count
+    @downvotes = Votes.where(user_vote: false, api: @api).count
   end
 
   def edit
