@@ -13,6 +13,9 @@
           <li class="menu-text">Site Title</li>
           <li><%= link_to("Add New", new_api_path) %></li>
           <li><%= link_to("View All by Category", apis_path) %></li>
+          <% if current_user.try(:admin?) %>
+          <li><%= link_to("Admin Dashboard", users_path) %></li>
+          <% end %>
         </ul>
       </div>
       <div class="top-bar-right">
