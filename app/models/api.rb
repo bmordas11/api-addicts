@@ -6,7 +6,7 @@ class Api < ActiveRecord::Base
 
   belongs_to :user
   has_many :reviews, dependent: :destroy
-  has_many :api_tags
+  has_many :api_tags, dependent: :destroy
   has_many :tags, through: :api_tags
 
   def self.add_tags(api, tags)
@@ -15,6 +15,14 @@ class Api < ActiveRecord::Base
       new_tag.save
       new_join = ApiTag.new(api: api, tag: new_tag)
       new_join.save
+    end
+  end
+
+  def owner?(user)
+    if self.user == user
+        true
+    else
+      false
     end
   end
 end

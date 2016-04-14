@@ -1,4 +1,8 @@
 <div class="row">
+  <% if @api.owner?(current_user) %>
+    <li> <%= link_to 'Edit Your Api', edit_api_path(@api) %> </li>
+    <li> <%= link_to "Delete", @api, method: :delete, data: {confirm: "Really wanna delete this api?"} %> </li>
+    <% end %>
   <div class="large-12 columns">
     <h2><%= @api.name %></h2>
     <p>

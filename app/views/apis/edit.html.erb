@@ -1,6 +1,6 @@
-<h2>New API Creation Page</h2>
+<h1>Editing Api</h1>
 <p>
-  <%= form_for Api.new do |f| %>
+  <%= form_for @api do |f| %>
     <%= f.text_field :name, id: "Name", value: @api.name %>
     <%= f.text_field :url, id: "URL", value: @api.url %>
     <%= f.text_field :description, id: "Description", value: @api.description  %>
@@ -8,6 +8,8 @@
     Paid?
     <%= f.collection_radio_buttons(:paid, [[true, "Yes."], [false, "No."]],
       :first, :last) %>
-    <%= f.submit "Create API" %>
+    <%= f.submit "Update API" %>
   <% end %>
 </p>
+
+<%= link_to 'Back', apis_path %>
