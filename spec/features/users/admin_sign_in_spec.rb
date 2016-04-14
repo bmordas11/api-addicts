@@ -1,6 +1,8 @@
+require 'rails_helper'
+
 feature 'admin signs in' do
   let(:admin1) { FactoryGirl.create(:user, admin: true) }
-  scenario 'provides valid credentials, successfully signs in as Admin' do
+    scenario 'provides valid credentials, successfully signs in as Admin' do
     visit root_path
 
     click_link 'Sign In'
