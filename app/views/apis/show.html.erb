@@ -1,5 +1,5 @@
 <div class="row">
-  <% if @api.owner?(current_user) %>
+  <% if @api.owner?(current_user) || current_user.try(:admin?) %>
     <li> <%= link_to 'Edit Your Api', edit_api_path(@api) %> </li>
     <li> <%= link_to "Delete", @api, method: :delete, data: {confirm: "Really wanna delete this api?"} %> </li>
     <% end %>
@@ -34,6 +34,10 @@
     <h3>Reviews for this API</h3>
     <ul>
       <% @reviews.each do |review|%>
+      <% if review.review_owner?(current_user) || current_user.try(:admin?) %>
+        <li> <%= link_to 'Edit Your Review', edit_api_review_path(@api, review) %> </li>
+        <li> <%= link_to "Delete Your Review", api_review_path(@api, review), method: :delete, data: {confirm: "Really wanna delete this Review?"} %> </li>
+        <% end %>
       <li>
         <%= review.body %>
         <%= review.rating %>

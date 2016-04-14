@@ -1,1 +1,9 @@
-<h1>API Addicts</h1>
+<h1>List of Users</h1>
+
+<ul>
+  <% @users.each do |user| %>
+  <h3> <%=link_to(user.first_name, user_path(user)) %> </h3>
+  <h3> <%=link_to(user.last_name, user_path(user)) %> </h3>
+  <%= user.email %>
+  <% end %>
+</ul>
