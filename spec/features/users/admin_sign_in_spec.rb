@@ -11,5 +11,5 @@ feature 'admin signs in' do
     expect(page).to have_content('Welcome Back!')
     expect(page).to have_content('Sign Out')
     expect(page).to have_content('Admin Dashboard')
-    end
   end
+end

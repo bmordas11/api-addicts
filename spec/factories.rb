@@ -5,7 +5,7 @@ FactoryGirl.define do
     last_name 'Cunningham'
     password 'password'
     password_confirmation 'password'
-    trait (:admin) { admin true}
+    trait (:admin) { admin true }
   end
   factory :api do
     sequence(:name) { |n| "API ##{n}" }
