@@ -8,6 +8,6 @@ class User < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
 
   def name
-    "#{self.first_name} #{self.last_name}"
+    "#{first_name} #{last_name}"
   end
 end
