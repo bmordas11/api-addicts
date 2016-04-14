@@ -1,41 +1,33 @@
-<div class="row">
-  <div class="large-12 columns">
-    <h2><%= @api.name %></h2>
-    <p>
-      <div class="column">
-        <div class="large-3 rows">
-          <%= @api.url %>
-        </div>
-        <div class="large-3 rows">
-          <%= @api.description %>
-        </div>
-        <div class="large-3 rows">
-          <%= "Posted By: #{@api.user.first_name} #{@api.user.last_name}"%>
-        </div>
-        <div class="large-3 rows">
-          <%= "Posted On: #{@api.created_at.strftime("%m-%d-%Y")}"%>
-        </div>
-      </div>
-      <% if @api.paid %>
-        <p>This API is not free! (It costs money)</p>
-      <% else %>
-        <p>This API is free!</p>
-      <% end %>
-      <% tags = "" %>
-        <% @api.tags.each do |tag| %>
-        <% tags += "#{tag.name} " %>
-      <% end %>
-      <%= "TAGS: #{tags} " %>
-    </p>
-    <h3>Reviews for this API</h3>
-    <ul>
-      <% @reviews.each do |review|%>
-      <li>
-        <%= review.body %>
-        <%= review.rating %>
-        <% end %>
-      </li>
-    </ul>
-    <%= render partial: 'new_review_form', object: @review %>
-  </div>
-</div>
+<h2><%= @api.name %></h2>
+<%= hidden_field(:api, :id, value: @api.id) %>
+<p>
+  <table>
+  <%= @api.name %>
+  <%= @api.url %>
+  <%= @api.description %>
+  <div class = "arrow-up" id="upvote"> <%= @upvotes %> </div>
+  <div class = "arrow-down" id="downvote"> <%= @downvotes %> </div>
+  <br />
+  <% tags = "" %>
+    <% @api.tags.each do |tag| %>
+    <% tags += "#{tag.name} " %>
+    <% end %>
+  <%= "TAGS: #{tags} " %>
+</p>
+
+<% if @api.paid %>
+  <p>This API is not free! (It costs money)</p>
+<% else %>
+  <p>This API is free!</p>
+<% end %>
+
+<h3>Reviews for this API</h3>
+
+<% @reviews.each do |review|%>
+  <%= review.body %>
+  <%= review.rating %>
+<% end %>
+
+<%= render partial: 'new_review_form', object: @review %>
+
+<%= javascript_include_tag "votes.js" %>
