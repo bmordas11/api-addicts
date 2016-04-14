@@ -27,7 +27,7 @@
           <% end %>
           <%= form_tag(apis_path, method: 'get', id: 'search-form') do %>
             <%= text_field_tag :search, params[:search],
-              placeholder: "Weather API" %>
+              placeholder: "Search APIs and Tags" %>
             <%= submit_tag "Search" %>
           <% end %>
         </ul>
@@ -39,7 +39,7 @@
     <%= csrf_meta_tags %>
   </head>
 
-    <body>
-      <%= yield %>
-    </body>
-  </html>
+  <body>
+    <%= yield %>
+  </body>
+</html>
