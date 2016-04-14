@@ -5,6 +5,11 @@ feature 'user adds a new api' do
   let!(:user) { FactoryGirl.create(:user) }
 
   scenario 'can add an api to the website' do
+    visit root_path
+    click_link 'Sign In'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Sign In'
     visit apis_path
     click_link 'Add New'
     expect(page).to have_field('Name')
@@ -17,12 +22,11 @@ feature 'user adds a new api' do
 
   scenario 'successfully adds a paid api' do
     visit root_path
-
     click_link 'Sign In'
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
-
     click_button 'Sign In'
+    visit apis_path
 
     visit root_path
     click_link 'Add New'
