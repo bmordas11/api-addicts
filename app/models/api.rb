@@ -1,5 +1,4 @@
 class Api < ActiveRecord::Base
-
   CATEGORIES = [
     'News',
     'Sports',
@@ -8,8 +7,7 @@ class Api < ActiveRecord::Base
     'Food',
     'Music',
     'Geolocation',
-    'Social Networking'
-  ]
+    'Social Networking'].freeze
 
   validates :name, presence: true
   validates :url, presence: true
