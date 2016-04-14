@@ -18,6 +18,7 @@
       <div class="medium-2 columns small-title top-bar" style="background-color: #9E9E9E;">
         <% if user_signed_in? %>
           <%= link_to 'Sign Out', destroy_user_session_path %>
+          <%= link_to 'My Profile', user_path(current_user) %>
         <% else %>
           <%= link_to 'Sign In', new_user_session_path %>
         <% end %>
@@ -41,6 +42,11 @@
       <div class="medium-4 columns" style="height: 75px;" data-equalizer>
         <div class="medium-12 columns top-menu-bg detail-text-medium float-left" data-equalizer-watch>
           SEARCH
+          <%= form_tag(apis_path, method: 'get', id: 'search-form') do %>
+            <%= text_field_tag :search, params[:search],
+              placeholder: "Search APIs and Tags" %>
+            <%= submit_tag "Search" %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -48,8 +54,8 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
 
-    </head>
-    <body>
-      <%= yield %>
-    </body>
-  </html>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>

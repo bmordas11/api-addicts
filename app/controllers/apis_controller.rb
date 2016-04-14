@@ -1,6 +1,12 @@
 class ApisController < ApplicationController
+  before_filter :authenticate_user!, except: [:show, :index]
+
   def index
-    @apis = Api.all
+    @apis = if params[:search]
+              Api.search(params[:search])
+            else
+              Api.all.order('created_at DESC')
+            end
   end
 
   def random
