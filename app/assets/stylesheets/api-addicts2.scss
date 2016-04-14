@@ -1,3 +1,17 @@
+@import "settings";
+
+.alert-box {
+  background-color: map-get($foundation-palette, success);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.alert-box .warning .notice {
+  background-color: map-get($foundation-palette, warning);
+  color: map-get($foundation-palette, warnText);
+}
+
 .body-background {
   background-color: #9E9E9E;
   width: 100%;

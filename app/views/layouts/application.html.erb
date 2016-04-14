@@ -3,9 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <div class=flash_messages>
-      <%= display_flash_messages %>
+    <div data-alert class="alert-box <%= flash.keys[0] %>">
+      <div class=flash_messages>
+        <%= display_flash_messages %>
+      </div>
     </div>
     <div class="row full" style="height: 45px;" data-equalizer>
       <div class="medium-8 columns medium-title top-bar float-left" data-equalizer-watch style="background-color: #9E9E9E; text-align: left;">
