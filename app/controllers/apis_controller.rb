@@ -10,6 +10,10 @@ class ApisController < ApplicationController
     render :show
   end
 
+  def about
+    render :about
+  end
+
   def new
     @api = Api.new
   end

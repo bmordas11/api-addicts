@@ -2,28 +2,35 @@
   <div class="row">
     <div class="medium-8 medium-centered columns api-show text-left detail-text-medium float-center">
       <div class="row">
-        <div class="medium-11 medium-centered columns api-details detail-text-medium">
-          <%= @api.name %>
-          <%= @api.url %>
-          <%= @api.description %>
-          <%= "Posted By: #{@api.user.first_name} #{@api.user.last_name}"%>
-          <%= "Posted On: #{@api.created_at.strftime("%m-%d-%Y")}"%>
-          <% if @api.paid %>
-            <p>This API is not free! (It costs money)</p>
-          <% else %>
-            <p>This API is free!</p>
-          <% end %>
-          <% tags = "" %>
-          <% @api.tags.each do |tag| %>
-            <% tags += "#{tag.name} " %>
-          <% end %>
-          <%= "TAGS: #{tags} " %>
+        <div class="medium-11 medium-centered columns api-details detail-text-medium" style="height: 200px;">
+          <div class="float-center show-title">
+            <%= @api.name %>
+          </div>
+          <div class="float-center small-title">
+            <a href="<%= @api.url %>"><%= @api.url %></a>
+          </div>
+          <div class="float-center detail-text-medium">
+            <%= @api.description %>
+          </div>
+          <div class="detail-text-medium" style="padding-top: 25px;">
+            <%= "Posted By: #{@api.user.first_name} #{@api.user.last_name}"%>
+            <%= "Posted On: #{@api.created_at.strftime("%m-%d-%Y")}"%>
+            <% tags = "" %>
+            <% @api.tags.each do |tag| %>
+              <% tags += "#{tag.name} " %>
+            <% end %>
+            <%= "TAGS: #{tags} " %>
+          </div>
         </div>
       </div>
-      Reviews for this API
       <% @reviews.each do |review|%>
-        <%= review.body %>
-        <%= review.rating %>
+      <div class="row">
+        <div class="medium-9 medium-centered columns detail-text-medium <%="rating#{review.rating}"%>">
+          <%= review.body %>
+          <%= review.api.user.email %>
+          <%= review.rating %>
+        </div>
+      </div>
       <% end %>
       <%= render partial: 'new_review_form', object: @review %>
     </div>
