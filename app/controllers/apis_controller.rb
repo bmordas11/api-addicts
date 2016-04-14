@@ -3,6 +3,13 @@ class ApisController < ApplicationController
     @apis = Api.all
   end
 
+  def random
+    @api = Api.all.sample
+    @review = Review.new
+    @reviews = @api.reviews
+    render :show
+  end
+
   def new
     @api = Api.new
   end
