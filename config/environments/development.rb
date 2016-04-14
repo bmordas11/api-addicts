@@ -3,7 +3,7 @@ Rails.application.configure do
 
   config.eager_load = false
 
-  config.consider_all_requests_local       = true
+  config.consider_all_requests_local = true
 
   config.action_controller.perform_caching = false
 
@@ -14,8 +14,11 @@ Rails.application.configure do
   config.active_record.migration_error = :page_load
 
   config.assets.debug = true
-
   config.assets.digest = true
-
   config.assets.raise_runtime_errors = true
+
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = { api_host: ENV["MAILGUN_DOMAIN"],
+                                            api_key: ENV["MAILGUN_API_KEY"]
+                                          }
 end

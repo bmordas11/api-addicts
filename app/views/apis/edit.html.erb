@@ -1,0 +1,15 @@
+<h1>Editing Api</h1>
+<p>
+  <%= form_for @api do |f| %>
+    <%= f.text_field :name, id: "Name", value: @api.name %>
+    <%= f.text_field :url, id: "URL", value: @api.url %>
+    <%= f.text_field :description, id: "Description", value: @api.description  %>
+    <%= f.text_field :tags, value: "", id: "Tags" %>
+    Paid?
+    <%= f.collection_radio_buttons(:paid, [[true, "Yes."], [false, "No."]],
+      :first, :last) %>
+    <%= f.submit "Update API" %>
+  <% end %>
+</p>
+
+<%= link_to 'Back', apis_path %>

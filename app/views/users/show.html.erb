@@ -1,2 +1,33 @@
+<%= link_to "Delete User", @user, method: :delete, data: {confirm: "Really wanna delete this USER?"} %>
 <h1><%="#{@user.first_name} #{@user.last_name}"%></h1>
+<%= image_tag(@user.profile_photo, size: "140") %>
 <h2><%=@user.email%></h2>
+<h3>Apis Posted by <%= @user.first_name %></h3>
+<% @apis.each do |api| %>
+<%= link_to "Delete API", api, method: :delete, data: {confirm: "Really wanna delete this API?"} %>
+  <h2><%= api.name %></h2>
+  <%= api.url %>
+  <%= api.description %>
+  <%= "Posted On: #{api.created_at.strftime("%m-%d-%Y")}"%>
+  <% if api.paid %>
+    <p>This API is not free! (It costs money)</p>
+  <% else %>
+    <p>This API is free!</p>
+  <% end %>
+  <% tags = "" %>
+    <% api.tags.each do |tag| %>
+    <% tags += "#{tag.name} " %>
+  <% end %>
+    <%= "TAGS: #{tags} " %>
+<% end %>
+
+<h3>Reviews Posted by <%= @user.first_name %></h3>
+<ul>
+  <% @reviews.each do |review| %>
+  <li>
+    <%= link_to "Delete Review", user_path(@user, review), method: :delete, data: {confirm: "Really wanna delete this Review?"} %>
+    <%= review.body %>
+    <%= review.rating %>
+    <% end %>
+  </li>
+</ul>

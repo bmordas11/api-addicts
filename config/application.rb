@@ -8,11 +8,18 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
+require "carrierwave"
 
 Bundler.require(*Rails.groups)
 
 module ApiAddicts
   class Application < Rails::Application
-    config.active_record.raise_in_transactional_callbacks = true
+    config.active_record.raise_in_transactional_callbacks = false
+  end
+end
+
+class FooInput < SimpleForm::Inputs::StringInput
+  def input_html_classes
+    super.push('text-fields')
   end
 end

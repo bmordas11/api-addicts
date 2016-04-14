@@ -8,12 +8,21 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'dotenv-rails'
 
-gem 'simple_form'
-gem 'kaminari'
 gem 'devise'
+gem 'puma'
+gem 'fog'
+gem 'simple_form'
+gem 'carrierwave'
 gem 'foundation-rails'
 gem 'foundation_rails_helper'
+gem 'rails-mailgun', git: "git://github.com/code-mancers/rails-mailgun.git"
+gem 'mailgun-ruby', require: 'mailgun'
+
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development do
   gem 'web-console', '~> 2.0'
@@ -35,4 +44,6 @@ group :development, :test do
   gem 'factory_girl'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end

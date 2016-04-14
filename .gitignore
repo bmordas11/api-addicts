@@ -3,10 +3,8 @@
 /log/*
 !/log/.keep
 /tmp
-=======
 *.rbc
 capybara-*.html
-.rspec
 /log
 /tmp
 /db/*.sqlite3
@@ -17,31 +15,20 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
+.DS_Store
 
 config/initializers/secret_token.rb
 config/secrets.yml
 
-## Environment normalization:
 /.bundle
 /vendor/bundle
-
-# these should all be checked in to normalize the environment:
-# Gemfile.lock, .ruby-version, .ruby-gemset
-
-# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
+.env
 
-# if using bower-rails ignore default bower_components path bower.json files
 /vendor/assets/bower_components
 *.bowerrc
 bower.json
-
-# Ignore pow environment settings
 .powenv
->>>>>>> 8b134cb8f239a020d28e62a00fd55fb299bfef8e
 
 /coverage
-
-/.env
-
-/rootkey.csv
+coveralls.yml

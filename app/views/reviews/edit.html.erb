@@ -1,0 +1,13 @@
+<%= form_for [@api, @review] do |f| %>
+  <div class="row">
+    <%= f.text_area :body, value: @review.body  %>
+
+    <%= f.label :rating %>
+    <%= f.collection_radio_buttons(:rating,
+      [[1], [2], [3], [4], [5]], :first, :last) %>
+  </div>
+
+  <div class="row">
+    <%= f.submit "Add Review" %>
+  </div>
+<% end %>

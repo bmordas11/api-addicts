@@ -15,4 +15,8 @@ api2 = Api.create(name: "google Api", url: "www.google.com",
 tag1 = Tag.create(name: "facebook")
 tag2 = Tag.create(name: "zacebook")
 
+admin = User.create(first_name: "jhon",last_name: 'admin',
+  email: "admin@example.com", password: 'leavemealone',
+  password_confirmation: 'leavemealone', admin: true)
+
 ApiTag.create(api: api1, tag: tag1)
