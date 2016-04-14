@@ -11,6 +11,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
 gem 'puma'
+gem 'fog'
 gem 'simple_form'
 gem 'carrierwave'
 gem 'foundation-rails'
@@ -38,6 +39,7 @@ group :development, :test do
   gem 'faker'
   gem 'factory_girl_rails'
   gem 'factory_girl'
+  gem 'dotenv-rails'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
 end

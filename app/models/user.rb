@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
+  mount_uploader :avatar, AvatarUploader
   validates :first_name, presence: :true
   validates :last_name, presence: :true
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
-  mount_uploader :avatar, AvatarUploader
-  
+
   has_many :apis, dependent: :destroy
   has_many :reviews, dependent: :destroy
 end
