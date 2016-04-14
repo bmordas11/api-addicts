@@ -1,3 +1,17 @@
 <h1><%="#{@user.first_name} #{@user.last_name}"%></h1>
 <%= image_tag(@user.profile_photo, size: "140") %>
 <h2><%=@user.email%></h2>
+
+<h3>My Apis</h3>
+<% @user_apis.each do |api|%>
+  <ul>
+    <%= link_to api.name, api_path(api) %>
+  </ul>
+<% end %>
+
+<h3>Apis I've Reviewed</h3>
+<% @user_reviews.each do |review| %>
+  <ul>
+    <%= link_to review.api.name, api_path(review.api) %>
+  </ul>
+<% end %>
