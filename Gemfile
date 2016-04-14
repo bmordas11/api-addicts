@@ -16,6 +16,10 @@ gem 'carrierwave'
 gem 'foundation-rails'
 gem 'foundation_rails_helper'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
