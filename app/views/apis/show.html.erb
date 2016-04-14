@@ -1,21 +1,25 @@
 <div class="body-background">
   <div class="row">
     <div class="medium-8 medium-centered columns api-show text-left detail-text-medium float-center">
-      <%= @api.name %>
-      <%= @api.url %>
-      <%= @api.description %>
-      <%= "Posted By: #{@api.user.first_name} #{@api.user.last_name}"%>
-      <%= "Posted On: #{@api.created_at.strftime("%m-%d-%Y")}"%>
-      <% if @api.paid %>
-        <p>This API is not free! (It costs money)</p>
-      <% else %>
-        <p>This API is free!</p>
-      <% end %>
-      <% tags = "" %>
-      <% @api.tags.each do |tag| %>
-        <% tags += "#{tag.name} " %>
-      <% end %>
-      <%= "TAGS: #{tags} " %>
+      <div class="row">
+        <div class="medium-11 medium-centered columns api-details detail-text-medium">
+          <%= @api.name %>
+          <%= @api.url %>
+          <%= @api.description %>
+          <%= "Posted By: #{@api.user.first_name} #{@api.user.last_name}"%>
+          <%= "Posted On: #{@api.created_at.strftime("%m-%d-%Y")}"%>
+          <% if @api.paid %>
+            <p>This API is not free! (It costs money)</p>
+          <% else %>
+            <p>This API is free!</p>
+          <% end %>
+          <% tags = "" %>
+          <% @api.tags.each do |tag| %>
+            <% tags += "#{tag.name} " %>
+          <% end %>
+          <%= "TAGS: #{tags} " %>
+        </div>
+      </div>
       Reviews for this API
       <% @reviews.each do |review|%>
         <%= review.body %>
