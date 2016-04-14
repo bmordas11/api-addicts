@@ -14,11 +14,7 @@ class ReviewsController < ApplicationController
     review.api = api
 
     if review.save
-      if Rails.env.development? || Rails.env.test?
-        ReviewMailer.new_review(review).deliver_later
-      elsif Rails.env.production?
-        mg_client.send_message(ENV['MAILGUN_DOMAIN'], message_params)
-      end
+      ReviewMailer.new_review(review).deliver_later
       flash[:success] = 'Review Submitted!'
     else
       flash[:failure] = review.errors.full_messages.join(', ')

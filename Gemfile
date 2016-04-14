@@ -15,7 +15,7 @@ gem 'kaminari'
 gem 'devise'
 gem 'foundation-rails'
 gem 'foundation_rails_helper'
-gem 'actionmailer'
+gem 'rails-mailgun', git: "git://github.com/code-mancers/rails-mailgun.git"
 gem 'mailgun-ruby', require: 'mailgun'
 
 group :development do
