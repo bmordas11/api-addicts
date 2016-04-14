@@ -20,7 +20,7 @@ class Api < ActiveRecord::Base
 
   def owner?(user)
     if self.user == user
-        true
+      true
     else
       false
     end

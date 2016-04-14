@@ -23,8 +23,8 @@ class ApisController < ApplicationController
     params[:api][:tags] = params[:api][:tags].split(',')
     @api = Api.find(params[:id])
     if @api.update(api_params)
-        redirect_to api_path(@api)
-        flash[:success] = "Api Updated!"
+      redirect_to api_path(@api)
+      flash[:success] = "Api Updated!"
     else
       flash[:failure] = "Api Not Updated!"
       render :edit
@@ -51,8 +51,8 @@ class ApisController < ApplicationController
     @api = Api.find(params[:id])
     @reviews = @api.reviews
     if @api.destroy
-       @reviews.destroy
-       flash[:success] = "Api has been deleted"
+      @reviews.destroy
+      flash[:success] = "Api has been deleted"
       redirect_to apis_path
     end
   end
