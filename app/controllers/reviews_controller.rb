@@ -16,8 +16,8 @@ class ReviewsController < ApplicationController
       flash[:success] = 'Review Submitted!'
       redirect_to api_path(api)
     else
-      flash[:failure] = review.errors.full_messages.join(', ')
-      flash[:failure] += '. Review Not Submitted'
+      flash[:warning] = review.errors.full_messages.join(', ')
+      flash[:warning] += '. Review Not Submitted'
       redirect_to api_path(api)
     end
   end

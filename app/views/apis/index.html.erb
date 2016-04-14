@@ -1,10 +1,34 @@
-<h1> API Index Page </h1>
-
-<ul class="apis">
-  <% @apis.each do |api| %>
-    <h3><%=link_to(api.name, api_path(api))%></h3>
-      <li style="margin-bottom: 10px;"><%= "#{api.description}" %></li>
-      <ul style="margin-bottom: 30px;"><%= "Posted By: #{api.user.first_name}
-        #{api.user.last_name}" %></ul>
-  <% end %>
-</ul>
+<div class="body-background">
+    <div class="row" style="height: 100%;">
+      <div class="medium-6 columns trending-section">
+        <div class="large-title">
+          Trending
+        </div>
+        <% @apis.each do |api| %>
+          <div class="small-12 columns api-listing text-left detail-text-medium float-center">
+            <div class="row">
+              <!-- <div class="small-8 columns"> -->
+                <div style="padding: 10px">
+                  <%= link_to(api.name, api_path(api)) %>
+                  <%= api.url %>
+                  <%= api.description %>
+                </div>
+              <!-- </div> -->
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="medium-6 columns categories-section">
+        <div class="large-title">
+          Categories
+        </div>
+        <% 8.times do |n| %>
+          <div class="small-5 columns category-listing">
+            <div class="small-title">
+              <%= "Category ##{n}" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>

@@ -1,37 +1,42 @@
-<h2>Sign up</h2>
+<div class="body-background">
+  <div="row">
+    <div class="medium-8 medium-centered columns">
+      <h2>Sign up</h2>
 
-<%= simple_form_for(resource,
-  as: resource_name,
-  url: registration_path(resource_name)) do |f| %>
-    <%= f.error_notification %>
+      <%= simple_form_for(resource,
+        as: resource_name,
+        url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+        <div class="form-inputs">
+          <%= f.input :first_name,
+            label: 'First Name',
+            required: true,
+            autofocus: true %>
+          <%= f.input :last_name,
+            label: 'Last Name',
+            required: true %>
+          <%= f.input :email,
+            required: true,
+            autofocus: true %>
+          <%= f.input :password,
+          required: true,
+          hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+          <%= f.input :password_confirmation,
+            label: 'Password Confirmation',
+            required: true %>
+        </div>
 
-  <div class="form-inputs">
-    <%= f.input :first_name,
-      label: 'First Name',
-      required: true,
-      autofocus: true %>
-    <%= f.input :last_name,
-      label: 'Last Name',
-      required: true %>
-    <%= f.input :email,
-      required: true,
-      autofocus: true %>
-    <%= f.input :password,
-    required: true,
-    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-      <%= f.input :password_confirmation,
-        label: 'Password Confirmation',
-        required: true %>
+        <div class="field">
+          <%= f.label :profile_photo, "Profile Photo" %><br />
+          <%= f.file_field :profile_photo %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Sign Up" %>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :profile_photo, "Profile Photo" %><br />
-    <%= f.file_field :profile_photo %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign Up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
