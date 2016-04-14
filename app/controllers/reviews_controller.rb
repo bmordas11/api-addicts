@@ -12,14 +12,15 @@ class ReviewsController < ApplicationController
     review = Review.new(review_params)
     review.user = current_user
     review.api = api
+
     if review.save
+      ReviewMailer.new_review(review).deliver_later
       flash[:success] = 'Review Submitted!'
-      redirect_to api_path(api)
     else
       flash[:failure] = review.errors.full_messages.join(', ')
       flash[:failure] += '. Review Not Submitted'
-      redirect_to api_path(api)
     end
+    redirect_to api_path(api)
   end
 
   private
