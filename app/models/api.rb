@@ -1,4 +1,14 @@
 class Api < ActiveRecord::Base
+  CATEGORIES = [
+    'News',
+    'Sports',
+    'Search',
+    'Events',
+    'Food',
+    'Music',
+    'Geolocation',
+    'Social Networking'].freeze
+
   validates :name, presence: true
   validates :url, presence: true
   validates :name, uniqueness: { scope: :url }

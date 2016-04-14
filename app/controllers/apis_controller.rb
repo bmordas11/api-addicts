@@ -52,14 +52,13 @@ class ApisController < ApplicationController
     params[:api][:tags] = params[:api][:tags].split(',')
     api = Api.new(api_params)
     api.user = current_user
-
     if api.save
       Api.add_tags(api, params[:api][:tags])
       flash[:success] = "New API Created!"
       redirect_to api_path(api)
     else
       flash[:failure] = api.errors.full_messages.join(', ')
-      flash[:failure] += ". API not created ya bum!"
+      flash[:failure] += ". API Not Created."
       render :new
     end
   end
@@ -77,6 +76,7 @@ class ApisController < ApplicationController
   private
 
   def api_params
-    params.require(:api).permit(:name, :url, :description, :paid, :tags)
+    params.require(:api).permit(
+      :name, :url, :description, :paid, :tags, :category)
   end
 end
