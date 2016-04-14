@@ -1,41 +1,27 @@
-<div class="row">
-  <div class="large-12 columns">
-    <h2><%= @api.name %></h2>
-    <p>
-      <div class="column">
-        <div class="large-3 rows">
-          <%= @api.url %>
-        </div>
-        <div class="large-3 rows">
-          <%= @api.description %>
-        </div>
-        <div class="large-3 rows">
-          <%= "Posted By: #{@api.user.first_name} #{@api.user.last_name}"%>
-        </div>
-        <div class="large-3 rows">
-          <%= "Posted On: #{@api.created_at.strftime("%m-%d-%Y")}"%>
-        </div>
-      </div>
+<div class="body-background">
+  <div class="row">
+    <div class="medium-8 medium-centered columns api-show text-left detail-text-medium float-center">
+      <%= @api.name %>
+      <%= @api.url %>
+      <%= @api.description %>
+      <%= "Posted By: #{@api.user.first_name} #{@api.user.last_name}"%>
+      <%= "Posted On: #{@api.created_at.strftime("%m-%d-%Y")}"%>
       <% if @api.paid %>
         <p>This API is not free! (It costs money)</p>
       <% else %>
         <p>This API is free!</p>
       <% end %>
       <% tags = "" %>
-        <% @api.tags.each do |tag| %>
+      <% @api.tags.each do |tag| %>
         <% tags += "#{tag.name} " %>
       <% end %>
       <%= "TAGS: #{tags} " %>
-    </p>
-    <h3>Reviews for this API</h3>
-    <ul>
+      Reviews for this API
       <% @reviews.each do |review|%>
-      <li>
         <%= review.body %>
         <%= review.rating %>
-        <% end %>
-      </li>
-    </ul>
-    <%= render partial: 'new_review_form', object: @review %>
+      <% end %>
+      <%= render partial: 'new_review_form', object: @review %>
+    </div>
   </div>
 </div>
