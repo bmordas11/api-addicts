@@ -16,3 +16,9 @@ module ApiAddicts
     config.active_record.raise_in_transactional_callbacks = true
   end
 end
+
+class FooInput < SimpleForm::Inputs::StringInput
+  def input_html_classes
+    super.push('text-fields')
+  end
+end
