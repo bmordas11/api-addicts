@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
+gem 'puma'
 gem 'simple_form'
 gem 'carrierwave'
 gem 'foundation-rails'
