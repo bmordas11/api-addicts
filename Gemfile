@@ -9,11 +9,17 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'simple_form'
-gem 'kaminari'
 gem 'devise'
+gem 'puma'
+gem 'fog'
+gem 'simple_form'
+gem 'carrierwave'
 gem 'foundation-rails'
 gem 'foundation_rails_helper'
+
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development do
   gem 'web-console', '~> 2.0'
@@ -33,6 +39,7 @@ group :development, :test do
   gem 'faker'
   gem 'factory_girl_rails'
   gem 'factory_girl'
+  gem 'dotenv-rails'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
 end
