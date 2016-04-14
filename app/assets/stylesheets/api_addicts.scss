@@ -1,0 +1,17 @@
+@import 'settings';
+
+.arrow-up {
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid $upvote-color;
+  height: 0;
+  width: 0;
+}
+
+.arrow-down {
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid $downvote-color;
+  height: 0;
+  width: 0;
+}

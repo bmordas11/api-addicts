@@ -19,6 +19,8 @@ rerun.txt
 pickle-email-*.html
 .DS_Store
 
+.env
+
 config/initializers/secret_token.rb
 config/secrets.yml
 
@@ -43,6 +45,5 @@ bower.json
 
 /coverage
 
-/.env
 
 /rootkey.csv

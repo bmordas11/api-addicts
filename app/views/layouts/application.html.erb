@@ -26,7 +26,7 @@
     <div class="row full" style="height: 75px;" data-equalizer>
       <div class="medium-8 columns" style="height: 75px;" data-equalizer>
         <div class="medium-3 columns top-menu-bg detail-text-medium float-left" data-equalizer-watch>
-          <%= link_to("ADD NEW", new_api_path) %>
+          <%= link_to("Add New", new_api_path) %>
         </div>
         <div class="medium-3 columns top-menu-bg detail-text-medium float-left" data-equalizer-watch>
           <%= link_to("VIEW ALL APIS", apis_path) %>
@@ -53,12 +53,3 @@
       <%= yield %>
     </body>
   </html>
-
-  <!-- <% if user_signed_in? %>
-  <li><%= link_to 'Sign Out', destroy_user_session_path %></li>
-  <% else %>
-  <li><%= link_to 'Sign In', new_user_session_path %>
-    <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-  <% end %>
-  <li><%= link_to("Add New", new_api_path) %></li>
-  <li><%= link_to("View All by Category", apis_path) %></li> -->

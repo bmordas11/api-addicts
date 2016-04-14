@@ -1,3 +1,6 @@
+<%= hidden_field(:api, :id, value: @api.id) %>
+<div class = "arrow-up" id="upvote"> <%= @upvotes %> </div>
+<div class = "arrow-down" id="downvote"> <%= @downvotes %> </div>
 <div class="body-background">
   <div class="row">
     <div class="medium-8 medium-centered columns api-show text-left detail-text-medium float-center">
@@ -36,3 +39,4 @@
     </div>
   </div>
 </div>
+<%= javascript_include_tag "votes.js" %>

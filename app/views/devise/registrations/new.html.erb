@@ -26,6 +26,11 @@
             required: true %>
         </div>
 
+        <div class="field">
+          <%= f.label :profile_photo, "Profile Photo" %><br />
+          <%= f.file_field :profile_photo %>
+        </div>
+
         <div class="form-actions">
           <%= f.button :submit, "Sign Up" %>
         </div>
