@@ -39,7 +39,6 @@ feature 'user adds a new api' do
     expect(page).to have_content('Absolutely not your Average API')
     expect(page).to have_content('www.yahoo.com/23000hh0ahfsdha')
     expect(page).to have_content('Yahoo thing.')
-    expect(page).to have_content('This API is not free! (It costs money)')
   end
 
   scenario 'successfully adds a free api' do
@@ -62,6 +61,5 @@ feature 'user adds a new api' do
     expect(page).to have_content('Penguins')
     expect(page).to have_content('www.somefreething.com/ir03n4020202020')
     expect(page).to have_content('Stuff about penguins.')
-    expect(page).to have_content('This API is free!')
   end
 end

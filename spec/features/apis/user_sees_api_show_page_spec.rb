@@ -12,7 +12,6 @@ feature 'user can view an API show page' do
     expect(page).to have_content(api1.name)
     expect(page).to have_content(api1.url)
     expect(page).to have_content(api1.description)
-    expect(page).to have_content('This API is free!')
   end
 
   scenario 'sees an api list for not free API' do
@@ -22,6 +21,5 @@ feature 'user can view an API show page' do
     expect(page).to have_content(api2.name)
     expect(page).to have_content(api2.url)
     expect(page).to have_content(api2.description)
-    expect(page).to have_content('This API is not free! (It costs money)')
   end
 end

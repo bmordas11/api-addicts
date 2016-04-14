@@ -9,6 +9,17 @@ class ApisController < ApplicationController
             end
   end
 
+  def random
+    @api = Api.all.sample
+    @review = Review.new
+    @reviews = @api.reviews
+    render :show
+  end
+
+  def about
+    render :about
+  end
+
   def new
     @api = Api.new
   end
@@ -17,6 +28,8 @@ class ApisController < ApplicationController
     @api = Api.find(params[:id])
     @review = Review.new
     @reviews = @api.reviews
+    @upvotes = Votes.where(user_vote: true, api: @api).count
+    @downvotes = Votes.where(user_vote: false, api: @api).count
   end
 
   def create
