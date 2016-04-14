@@ -14,22 +14,11 @@ class ReviewsController < ApplicationController
     review.api = api
 
     if review.save
-      mg_client = Mailgun::Client.new(ENV['MAILGUN_API_KEY'])
-
-      message_params = { from: 'admin@api-addicts.herokuapp.com',
-        to:      review.api.user.email,
-        subject: "There's a new review of your API",
-        text:    "Someone reviewed your API #{}"
-      }
-      # if rails.env.development? || rails.env.production?
-
-        # Send your message through the client
-
+      if Rails.env.development? || Rails.env.test?
+        ReviewMailer.new_review(review).deliver_later
+      elsif Rails.env.production?
         mg_client.send_message(ENV['MAILGUN_DOMAIN'], message_params)
-        # ReviewMailer.send_new_review_message(review)
-        # ReviewMailer.new_review(review).deliver_later
-
-      # end
+      end
       flash[:success] = 'Review Submitted!'
     else
       flash[:failure] = review.errors.full_messages.join(', ')

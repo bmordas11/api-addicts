@@ -15,8 +15,6 @@ gem 'kaminari'
 gem 'devise'
 gem 'foundation-rails'
 gem 'foundation_rails_helper'
-gem 'factory_girl_rails'
-gem 'factory_girl'
 gem 'actionmailer'
 gem 'mailgun-ruby', require: 'mailgun'
 

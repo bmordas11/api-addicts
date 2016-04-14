@@ -4,7 +4,7 @@ feature "user that made api is emailed on a new review" do
   let!(:user) { FactoryGirl.create(:user) }
   let!(:api)  { FactoryGirl.create(:api, user: user) }
 
-  scenario "the user is successfully emailed" do
+  scenario "the test-case user is successfully emailed" do
     visit root_path
     click_link 'Sign In'
     fill_in 'Email', with: user.email
@@ -16,7 +16,6 @@ feature "user that made api is emailed on a new review" do
     fill_in 'Body', with: 'Some kind of wonderful.'
     choose("5")
     click_button 'Add Review'
-    binding.pry
     expect(page).to have_content('Some kind of wonderful.')
     expect(ReviewMailer.deliveries.count).to eq(1)
     expect(ActionMailer::Base.deliveries.count).to eq(1)
