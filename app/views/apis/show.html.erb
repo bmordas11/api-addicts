@@ -13,6 +13,9 @@
           <%= "Posted By: #{@api.user.first_name} #{@api.user.last_name}"%>
         </div>
         <div class="large-3 rows">
+          <%= "Category: #{@api.category}"%>
+        </div>
+        <div class="large-3 rows">
           <%= "Posted On: #{@api.created_at.strftime("%m-%d-%Y")}"%>
         </div>
       </div>

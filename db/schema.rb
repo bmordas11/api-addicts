@@ -1,6 +1,4 @@
-ActiveRecord::Schema.define(version: 20160412153851) do
-
-  # These are extensions that must be enabled in order to support this database
+ActiveRecord::Schema.define(version: 20160414173532) do
   enable_extension "plpgsql"
 
   create_table "api_tags", force: :cascade do |t|
@@ -18,6 +16,7 @@ ActiveRecord::Schema.define(version: 20160412153851) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id",     null: false
+    t.string   "category"
   end
 
   add_index "apis", ["user_id"], name: "index_apis_on_user_id", using: :btree
@@ -53,6 +52,7 @@ ActiveRecord::Schema.define(version: 20160412153851) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "profile_photo"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
