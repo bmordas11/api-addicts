@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  mount_uploader :avatar, AvatarUploader
+  mount_uploader :avatar, ProfilePhotoUploader
+
   validates :first_name, presence: :true
   validates :last_name, presence: :true
   devise :database_authenticatable, :registerable,
