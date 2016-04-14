@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'users#index'
+  root 'apis#index'
   resources :apis, only: [:index, :show, :new, :create] do
     resources :reviews, only: [:index, :new, :create]
   end

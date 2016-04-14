@@ -1,7 +1,18 @@
-FactoryGirl.create(:user)
+user1 = User.create(first_name: "Richie",last_name: 'Cunningham',
+  email: "to@example.com", password: 'password',
+    password_confirmation: 'password')
 
-FactoryGirl.create(:api)
+user2 = User.create(first_name: "Adam",last_name: 'Khan',
+  email: "beto@example.com", password: 'password123',
+    password_confirmation: 'password123')
 
-FactoryGirl.create(:api)
+api1 = Api.create(name: "google Api", url: "www.google.com",
+  description: "This is an awesome paid API", paid: true, user: user1)
 
-FactoryGirl.create(:review)
+api2 = Api.create(name: "google Api", url: "www.google.com",
+  description: "This is an awesome paid API", paid: true, user: user2)
+
+tag1 = Tag.create(name: "facebook")
+tag2 = Tag.create(name: "zacebook")
+
+ApiTag.create(api: api1, tag: tag1)
