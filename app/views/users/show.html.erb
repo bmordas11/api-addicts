@@ -31,6 +31,10 @@
         <% @reviews.each do |review| %>
         <li>
           <%= link_to "Delete Review", api_review_path(review.api_id, review.id), method: :delete, data: {confirm: "Really wanna delete this Review?"} %>
+          <%= review.body %>
+          <%= review.api.user.email %>
+          <%= review.rating %>
+          <% end %>
         </li>
       </ul>
     </div>

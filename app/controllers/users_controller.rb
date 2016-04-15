@@ -25,12 +25,12 @@ class UsersController < ApplicationController
         flash[:success] = "Api has been Permanently deleted from DB!"
         redirect_to user_path(user)
       end
-      @reviews.each do |review|
-        @review = review
-        if @review.destroy
-          flash[:success] = "Review has been Permanently deleted from DB!"
-          redirect_to user_path(user)
-        end
+    end
+    @reviews.each do |review|
+      @review = review
+      if @review.destroy
+        flash[:success] = "Review has been Permanently deleted from DB!"
+        redirect_to user_path(user)
       end
     end
   end
