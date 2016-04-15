@@ -1,11 +1,11 @@
 FactoryGirl.define do
+
   factory :user do
     sequence(:email) { |n| "user#{n}@apiaddict.xyz" }
     first_name 'Richie'
     last_name 'Cunningham'
     password 'password'
     password_confirmation 'password'
-    trait (:admin) { admin true }
   end
   factory :api do
     sequence(:name) { |n| "API ##{n}" }
@@ -23,6 +23,6 @@ FactoryGirl.define do
     association :api, factory: :api
   end
   factory :tag do
-    sequence(:name) { |n| "tag#{n}" }
+    sequence(:name) { |n| "API#{n}" }
   end
 end
