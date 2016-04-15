@@ -1,0 +1,11 @@
+<% @apis.each do |api| %>
+  <div class="small-12 columns api-listing text-left detail-text-medium float-center">
+    <div class="row">
+        <div style="padding: 10px">
+          <%= link_to(api.name, api_path(api)) %>
+          <%= api.url %>
+          <%= api.description %>
+        </div>
+    </div>
+  </div>
+<% end %>

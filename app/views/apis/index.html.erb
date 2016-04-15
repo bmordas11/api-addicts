@@ -20,13 +20,17 @@
         <div class="large-title">
           Categories
         </div>
-        <% 8.times do |n| %>
-          <div class="small-5 columns category-listing">
-            <div class="small-title">
-              <%= "Category ##{n}" %>
+        <div id="categories">
+          <% Api::CATEGORIES.each do |category| %>
+            <div class="small-5 columns category-listing" id="<%=category%>">
+              <div class="small-title">
+                <%= "#{category}" %>
+              </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
+
+  <%= javascript_include_tag "categories.js" %>

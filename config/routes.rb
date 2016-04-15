@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       resources :votes
       get '/upvote/' => 'votes#upvote'
       get '/downvote/' => 'votes#downvote'
+      get '/change/:category' => 'api#change'
     end
   end
 end
