@@ -3,6 +3,6 @@ class ApplicationMailer < ActionMailer::Base
 
   def review_mailer(user)
     @user = user
-    mail(to: @user.email_address, subject: "Welcome!")
+    mail(to: 'efournier92@gmail.com', subject: "Welcome!")
   end
 end
