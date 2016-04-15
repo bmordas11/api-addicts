@@ -4,12 +4,12 @@
       <%= link_to "Delete User", @user, method: :delete, data: {confirm: "Really wanna delete this USER?"} %>
       <h4><%="#{@user.first_name} #{@user.last_name}"%></h4>
       <div class="circular">
-      <%= image_tag(@user.profile_photo, size: "140") %>
+        <%= image_tag(@user.profile_photo, size: "140") %>
       </div>
       <h4><%=@user.email%></h4>
       <h4>Apis Posted by <%= @user.first_name %></h4>
       <% @apis.each do |api| %>
-      <%= link_to "Delete API", api, method: :delete, data: {confirm: "Really wanna delete this API?"} %>
+        <%= link_to "Delete API", api, method: :delete, data: {confirm: "Really wanna delete this API?"} %>
         <h4><%= api.name %></h4>
         <%= api.url %>
         <%= api.description %>
@@ -20,7 +20,7 @@
           <p>This API is free!</p>
         <% end %>
         <% tags = "" %>
-          <% api.tags.each do |tag| %>
+        <% api.tags.each do |tag| %>
           <% tags += "#{tag.name} " %>
         <% end %>
           <%= "TAGS: #{tags} " %>

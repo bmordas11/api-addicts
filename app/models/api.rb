@@ -29,12 +29,10 @@ class Api < ActiveRecord::Base
   end
 
   def owner?(user)
-    if self.user == user
-      true
-    else
-      false
-    end
+    self.user == user
   end
+
+  private
 
   def self.search(search)
     results = []
@@ -43,6 +41,6 @@ class Api < ActiveRecord::Base
     results += where("name LIKE ?", "%#{search}%")
     results += where("description LIKE ?", "%#{search}%")
     results += where("url LIKE ?", "%#{search}%")
-    results
+    results.uniq { |api| api.id }
   end
 end
