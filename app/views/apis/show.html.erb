@@ -11,7 +11,7 @@
           <div class = "arrow-up" id="upvote"> <%= @upvotes %> </div>
           <div class = "arrow-down" id="downvote"> <%= @downvotes %> </div>
         </div>
-        <div class="medium-11 medium-centered columns api-details detail-text-medium" style="height: 200px;">
+        <div class="medium-11 medium-centered columns api-details detail-text-medium"">
           <div class="float-center show-title">
             <%= @api.name %>
           </div>
@@ -22,7 +22,7 @@
             <%= @api.description %>
           </div>
           <div class="detail-text-medium" style="padding-top: 25px;">
-            <%= "Posted By: #{@api.user.first_name} #{@api.user.last_name}"%>
+            <p><%= "Posted By: #{@api.user.first_name} #{@api.user.last_name}"%></p>
             <%= "Posted On: #{@api.created_at.strftime("%m-%d-%Y")}"%>
             <% tags = "" %>
             <% @api.tags.each do |tag| %>
@@ -34,13 +34,20 @@
         <% @reviews.each do |review|%>
         <div class="row">
           <div class="medium-9 medium-centered columns detail-text-medium <%="rating#{review.rating}"%>">
-            <% if review.review_owner?(current_user) || current_user.try(:admin?) %>
-              <%= link_to 'Edit Your Review', edit_api_review_path(@api, review) %>
-              <%= link_to "Delete Your Review", api_review_path(@api, review), method: :delete, data: {confirm: "Really wanna delete this Review?"} %>
-            <% end %>
-            <%= review.body %>
-            <%= review.api.user.email %>
-            <%= review.rating %>
+            <div class="row">
+              <% if review.review_owner?(current_user) || current_user.try(:admin?) %>
+                <%= link_to 'Edit Your Review', edit_api_review_path(@api, review) %>
+                <%= link_to "Delete Your Review", api_review_path(@api, review), method: :delete, data: {confirm: "Really wanna delete this Review?"} %>
+              <% end %>
+            </div>
+            <div class="row">
+              <%= review.body %>
+            </div>
+            <br/>
+            <div class="row">
+              <p>Posted by: <%= review.api.user.email %></p>
+              Rating: <%= review.rating %>
+            </div>
           </div>
         </div>
         <% end %>

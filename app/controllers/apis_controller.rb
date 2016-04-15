@@ -1,5 +1,5 @@
 class ApisController < ApplicationController
-  before_filter :authenticate_user!, except: [:show, :index]
+  before_filter :authenticate_user!, except: [:show, :index, :random, :about]
 
   def index
     @apis = if params[:search]

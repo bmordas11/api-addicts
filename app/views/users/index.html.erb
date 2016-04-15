@@ -1,9 +1,14 @@
-<h1>List of Users</h1>
-
-<ul>
-  <% @users.each do |user| %>
-  <h5> <%=link_to(user.first_name, user_path(user)) %> 
-          <%=link_to(user.last_name, user_path(user)) %> </h5>
-  <%= user.email %>
-  <% end %>
-</ul>
+<div class="body-background">
+  <div class="row">
+    <div class="medium-8 medium-centered columns api-show text-left detail-text-medium" style="margin-top: 60px;">
+      <h1>List of Users</h1>
+      <ul>
+        <% @users.each do |user| %>
+          <h5><%=link_to(user.first_name, user_path(user)) %>
+          <%=link_to(user.last_name, user_path(user)) %></h5>
+          <%= user.email %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
