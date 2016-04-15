@@ -2,8 +2,8 @@
 
 <ul>
   <% @users.each do |user| %>
-  <h3> <%=link_to(user.first_name, user_path(user)) %> </h3>
-  <h3> <%=link_to(user.last_name, user_path(user)) %> </h3>
+  <h5> <%=link_to(user.first_name, user_path(user)) %> 
+          <%=link_to(user.last_name, user_path(user)) %> </h5>
   <%= user.email %>
   <% end %>
 </ul>
