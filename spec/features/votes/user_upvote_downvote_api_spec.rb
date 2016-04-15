@@ -32,9 +32,8 @@ feature "user upvotes and downvotes APIs" do
   scenario "signed in user upvotes an api and is reflected on the page
     without reloading it", js: true do
 
-    visit root_path
+    visit new_user_session_path
 
-    click_link 'Sign In'
     fill_in 'Email', with: user1.email
     fill_in 'Password', with: user1.password
 
