@@ -4,7 +4,13 @@
         <div class="large-title">
           Trending
         </div>
-        <% @apis.each do |api| %>
+        <div class="left_pagination">
+
+
+        </div>
+
+        <% @api_pages = Api.paginate(:page => params[:page], :per_page => 5) %>
+        <% @api_pages.each do |api| %>
           <div class="small-12 columns api-listing text-left detail-text-medium float-center">
             <div class="row">
               <!-- <div class="small-8 columns"> -->
@@ -16,6 +22,9 @@
               <!-- </div> -->
             </div>
           </div>
+          <%= will_paginate @api_pages,
+            page_links: false,
+            renderer: FoundationPagination::Rails %>
         <% end %>
       </div>
       <div class="medium-6 columns categories-section">
