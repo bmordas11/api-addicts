@@ -1,32 +1,39 @@
 <div class="body-background">
-    <div class="row" style="height: 100%;">
-      <div class="medium-6 columns trending-section">
-        <div class="large-title">
-          Trending
-        </div>
-        <% @apis.each do |api| %>
-          <div class="small-12 columns api-listing text-left detail-text-medium float-center">
-            <div class="row">
-                <div style="padding: 10px">
-                  <%= link_to(api.name, api_path(api)) %>
-                  <%= api.url %>
-                  <%= api.description %>
-                </div>
-            </div>
-          </div>
-        <% end %>
+  <div class="row" style="height: 100%;">
+    <div class="medium-6 columns trending-section">
+      <div class="large-title">
+        Trending
       </div>
-      <div class="medium-6 columns categories-section">
-        <div class="large-title">
-          Categories
-        </div>
-        <% 8.times do |n| %>
-          <div class="small-5 columns category-listing">
-            <div class="small-title">
-              <%= "Category ##{n}" %>
-            </div>
+      <% @apis = Api.paginate(:page => params[:page], :per_page => 1) %>
+      <% @apis.each do |api| %>
+      <div class="small-12 columns api-listing text-left detail-text-medium float-center">
+        <div class="row">
+          <div style="padding: 10px">
+            <%= link_to(api.name, api_path(api)) %>
+            <%= api.url %>
+            <%= api.description %>
           </div>
-        <% end %>
+        </div>
+      </div>
+      <% end %>
+      <div class="float-center">
+        <%= will_paginate @apis,
+        page_links: false,
+        renderer: FoundationPagination::Rails %>
       </div>
     </div>
+
+    <div class="medium-6 columns categories-section">
+      <div class="large-title">
+        Categories
+      </div>
+      <% 8.times do |n| %>
+      <div class="small-5 columns category-listing">
+        <div class="small-title">
+          <%= "Category ##{n}" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
   </div>
+</div>

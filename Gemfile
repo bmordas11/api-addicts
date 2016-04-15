@@ -19,6 +19,8 @@ gem 'simple_form'
 gem 'carrierwave'
 gem 'foundation-rails'
 gem 'foundation_rails_helper'
+gem 'will_paginate'
+gem 'will_paginate-foundation'
 gem 'rails-mailgun', git: "git://github.com/code-mancers/rails-mailgun.git"
 gem 'mailgun-ruby', require: 'mailgun'
 
