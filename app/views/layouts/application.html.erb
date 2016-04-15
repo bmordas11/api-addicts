@@ -9,48 +9,44 @@
       </div>
     </div>
     <div class="row full" style="height: 45px;" data-equalizer>
-      <div class="medium-8 columns medium-title top-bar float-left" data-equalizer-watch style="background-color: #9E9E9E; text-align: left;">
+      <div class="medium-12 columns medium-title top-bar float-left" data-equalizer-watch style="background-color: #9E9E9E; text-align: left;">
         API Addicts
-      </div>
-      <div class="medium-2 columns small-title top-bar" style="background-color: #9E9E9E;">
-        <%= link_to 'Sign Up', new_user_registration_path %>
-      </div>
-      <div class="medium-2 columns small-title top-bar" style="background-color: #9E9E9E;">
-        <% if current_user.try(:admin?) %>
-        <li><%= link_to("Admin Dashboard", users_path) %></li>
-        <% end %>
-        <% if user_signed_in? %>
-          <%= link_to 'Sign Out', destroy_user_session_path %>
-          <%= link_to 'My Profile', user_path(current_user) %>
-        <% else %>
-          <%= link_to 'Sign In', new_user_session_path %>
-        <% end %>
       </div>
     </div>
     <div class="row full" style="height: 75px;" data-equalizer>
-      <div class="medium-8 columns" style="height: 75px;" data-equalizer>
-        <div class="medium-3 columns top-menu-bg detail-text-medium float-left" data-equalizer-watch>
-          <%= link_to("Add New", new_api_path) %>
+      <div class="medium-8 columns top-menu-bg top-menu" style="height: 75px;" data-equalizer>
+        <div class="dropdown">
+          <button class="dropbtn"><h4>---</h4></button>
+          <div class="dropdown-content">
+            <%= link_to 'View All', apis_path %>
+            <%= link_to 'Add New', new_api_path %>
+            <%= link_to 'Random API', apis_random_path %>
+          </div>
         </div>
-        <div class="medium-3 columns top-menu-bg detail-text-medium float-left" data-equalizer-watch>
-          <%= link_to("VIEW ALL APIS", apis_path) %>
-        </div>
-        <div class="medium-3 columns top-menu-bg detail-text-medium float-left" data-equalizer-watch>
-          <%= link_to("VIEW RANDOM", apis_random_path) %>
-        </div>
-        <div class="medium-3 columns top-menu-bg detail-text-medium float-left" data-equalizer-watch>
-          <%= link_to("ABOUT", apis_about_path) %>
+        <div class="dropdown float-right">
+          <button class="dropbtn">My Profile</button>
+          <div class="dropdown-content">
+            <%= link_to 'Sign Up', new_user_registration_path %>
+            <% if current_user.try(:admin?) %>
+            <li><%= link_to("Admin Dashboard", users_path) %></li>
+            <% end %>
+            <% if user_signed_in? %>
+              <%= link_to 'Sign Out', destroy_user_session_path %>
+              <%= link_to 'My Profile', user_path(current_user) %>
+            <% else %>
+              <%= link_to 'Sign In', new_user_session_path %>
+            <% end %>
+          </div>
         </div>
       </div>
-      <div class="medium-4 columns" style="height: 75px;" data-equalizer>
-        <div class="medium-12 columns top-menu-bg detail-text-medium float-left" data-equalizer-watch>
-          SEARCH
+      <div class="medium-4 columns top-menu-bg" style="height: 75px;" data-equalizer>
+        <!-- <div class="medium-12 columns top-menu-bg detail-text-medium float-left" data-equalizer-watch> -->
           <%= form_tag(apis_path, method: 'get', id: 'search-form') do %>
             <%= text_field_tag :search, params[:search],
-              placeholder: "Search APIs and Tags" %>
+              placeholder: "Search APIs and Tags", id: 'search-field' %>
             <%= submit_tag "Search" %>
           <% end %>
-        </div>
+        <!-- </div> -->
       </div>
     </div>
     <%= stylesheet_link_tag "application" %>

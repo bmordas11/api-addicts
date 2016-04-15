@@ -1,33 +1,41 @@
-<%= link_to "Delete User", @user, method: :delete, data: {confirm: "Really wanna delete this USER?"} %>
-<h4><%="#{@user.first_name} #{@user.last_name}"%></h4>
-<%= image_tag(@user.profile_photo, size: "140") %>
-<h4><%=@user.email%></h4>
-<h4>Apis Posted by <%= @user.first_name %></h4>
-<% @apis.each do |api| %>
-<%= link_to "Delete API", api, method: :delete, data: {confirm: "Really wanna delete this API?"} %>
-  <h4><%= api.name %></h4>
-  <%= api.url %>
-  <%= api.description %>
-  <%= "Posted On: #{api.created_at.strftime("%m-%d-%Y")}"%>
-  <% if api.paid %>
-    <p>This API is not free! (It costs money)</p>
-  <% else %>
-    <p>This API is free!</p>
-  <% end %>
-  <% tags = "" %>
-    <% api.tags.each do |tag| %>
-    <% tags += "#{tag.name} " %>
-  <% end %>
-    <%= "TAGS: #{tags} " %>
-<% end %>
+<div class="body-background">
+  <div class="row">
+    <div class="medium-8 medium-centered columns api-show text-left detail-text-medium" style="margin-top: 60px;">
+      <%= link_to "Delete User", @user, method: :delete, data: {confirm: "Really wanna delete this USER?"} %>
+      <h4><%="#{@user.first_name} #{@user.last_name}"%></h4>
+      <div class="circular">
+      <%= image_tag(@user.profile_photo, size: "140") %>
+      </div>
+      <h4><%=@user.email%></h4>
+      <h4>Apis Posted by <%= @user.first_name %></h4>
+      <% @apis.each do |api| %>
+      <%= link_to "Delete API", api, method: :delete, data: {confirm: "Really wanna delete this API?"} %>
+        <h4><%= api.name %></h4>
+        <%= api.url %>
+        <%= api.description %>
+        <%= "Posted On: #{api.created_at.strftime("%m-%d-%Y")}"%>
+        <% if api.paid %>
+          <p>This API is not free! (It costs money)</p>
+        <% else %>
+          <p>This API is free!</p>
+        <% end %>
+        <% tags = "" %>
+          <% api.tags.each do |tag| %>
+          <% tags += "#{tag.name} " %>
+        <% end %>
+          <%= "TAGS: #{tags} " %>
+      <% end %>
 
-<h3>Reviews Posted by <%= @user.first_name %></h3>
-<ul>
-  <% @reviews.each do |review| %>
-  <li>
-    <%= link_to "Delete Review", user_path(@user, review), method: :delete, data: {confirm: "Really wanna delete this Review?"} %>
-    <%= review.body %>
-    <%= review.rating %>
-    <% end %>
-  </li>
-</ul>
+      <h3>Reviews Posted by <%= @user.first_name %></h3>
+      <ul>
+        <% @reviews.each do |review| %>
+        <li>
+          <%= link_to "Delete Review", user_path(@user, review), method: :delete, data: {confirm: "Really wanna delete this Review?"} %>
+          <%= review.body %>
+          <%= review.rating %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

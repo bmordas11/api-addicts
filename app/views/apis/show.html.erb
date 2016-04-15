@@ -1,14 +1,16 @@
 <%= hidden_field(:api, :id, value: @api.id) %>
-<div class = "arrow-up" id="upvote"> <%= @upvotes %> </div>
-<div class = "arrow-down" id="downvote"> <%= @downvotes %> </div>
 <div class="body-background">
   <div class="row">
     <div class="medium-8 medium-centered columns api-show text-left detail-text-medium float-center">
       <div class="row">
         <% if @api.owner?(current_user) || current_user.try(:admin?) %>
-        <li> <%= link_to 'Edit Your Api', edit_api_path(@api) %> </li>
-        <li> <%= link_to "Delete", @api, method: :delete, data: {confirm: "Really wanna delete this api?"} %> </li>
+          <%= link_to 'Edit Your Api', edit_api_path(@api) %>
+          <%= link_to "Delete", @api, method: :delete, data: {confirm: "Really wanna delete this api?"} %>
         <% end %>
+        <div class="medium-1 columns" style="height: 200px; padding-left: 40px; padding-top: 90px;">
+          <div class = "arrow-up" id="upvote"> <%= @upvotes %> </div>
+          <div class = "arrow-down" id="downvote"> <%= @downvotes %> </div>
+        </div>
         <div class="medium-11 medium-centered columns api-details detail-text-medium" style="height: 200px;">
           <div class="float-center show-title">
             <%= @api.name %>
@@ -24,29 +26,17 @@
             <%= "Posted On: #{@api.created_at.strftime("%m-%d-%Y")}"%>
             <% tags = "" %>
             <% @api.tags.each do |tag| %>
-            <% tags += "#{tag.name} " %>
+              <% tags += "#{tag.name} " %>
             <% end %>
             <%= "TAGS: #{tags} " %>
           </div>
-        </div>
-        <div class="large-3 rows">
-          <%= @api.description %>
-        </div>
-        <div class="large-3 rows">
-          <%= "Posted By: #{@api.user.first_name} #{@api.user.last_name}"%>
-        </div>
-        <div class="large-3 rows">
-          <%= "Category: #{@api.category}"%>
-        </div>
-        <div class="large-3 rows">
-          <%= "Posted On: #{@api.created_at.strftime("%m-%d-%Y")}"%>
         </div>
         <% @reviews.each do |review|%>
         <div class="row">
           <div class="medium-9 medium-centered columns detail-text-medium <%="rating#{review.rating}"%>">
             <% if review.review_owner?(current_user) || current_user.try(:admin?) %>
-            <li> <%= link_to 'Edit Your Review', edit_api_review_path(@api, review) %> </li>
-            <li> <%= link_to "Delete Your Review", api_review_path(@api, review), method: :delete, data: {confirm: "Really wanna delete this Review?"} %> </li>
+              <%= link_to 'Edit Your Review', edit_api_review_path(@api, review) %>
+              <%= link_to "Delete Your Review", api_review_path(@api, review), method: :delete, data: {confirm: "Really wanna delete this Review?"} %>
             <% end %>
             <%= review.body %>
             <%= review.api.user.email %>
