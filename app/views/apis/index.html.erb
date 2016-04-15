@@ -1,36 +1,40 @@
 <div class="body-background">
-    <div class="row" style="height: 100%;">
-      <div class="medium-6 columns trending-section">
-        <div class="large-title">
-          Trending
-        </div>
-        <% @apis.each do |api| %>
-          <div class="small-12 columns api-listing text-left detail-text-medium float-center">
-            <div class="row">
-                <div style="padding: 10px">
-                  <%= link_to(api.name, api_path(api)) %>
-                  <%= api.url %>
-                  <%= api.description %>
-                </div>
-            </div>
-          </div>
-        <% end %>
+  <div class="row" style="height: 100%;">
+    <div class="medium-6 columns trending-section">
+      <div class="large-title">
+        Trending
       </div>
-      <div class="medium-6 columns categories-section">
-        <div class="large-title">
-          Categories
+      <% @apis_paginated = @apis.paginate(page: params[:page], per_page: 5) %>
+      <% @apis_paginated.each do |api| %>
+      <div class="small-12 columns api-listing text-left detail-text-medium float-center">
+        <div class="row">
+          <div style="padding: 10px">
+            <%= link_to(api.name, api_path(api)) %>
+            <%= api.url %>
+            <%= api.description %>
+          </div>
         </div>
-        <div id="categories">
-          <% Api::CATEGORIES.each do |category| %>
-            <div class="small-5 columns category-listing" id="<%=category%>">
-              <div class="small-title">
-                <%= "#{category}" %>
-              </div>
-            </div>
-          <% end %>
+      </div>
+      <% end %>
+      <%= will_paginate @apis_paginated,
+      page_links: false,
+      renderer: FoundationPagination::Rails %>
+    </div>
+    <div class="medium-6 columns categories-section">
+      <div class="large-title">
+        Categories
+      </div>
+      <div id="categories">
+        <% Api::CATEGORIES.each do |category| %>
+        <div class="small-5 columns category-listing" id="<%=category%>">
+          <div class="small-title">
+            <%= "#{category}" %>
+          </div>
         </div>
+        <% end %>
       </div>
     </div>
   </div>
+</div>
 
-  <%= javascript_include_tag "categories.js" %>
+<%= javascript_include_tag "categories.js" %>

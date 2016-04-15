@@ -21,6 +21,8 @@ gem 'foundation-rails'
 gem 'foundation_rails_helper'
 gem 'rails-mailgun', git: "git://github.com/code-mancers/rails-mailgun.git"
 gem 'mailgun-ruby', require: 'mailgun'
+gem 'will_paginate'
+gem 'will_paginate-foundation'
 
 group :production do
   gem 'rails_12factor'
