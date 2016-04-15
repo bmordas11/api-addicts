@@ -22,4 +22,7 @@ FactoryGirl.define do
     association :user, factory: :user
     association :api, factory: :api
   end
+  factory :tag do
+    sequence(:name) { |n| "API#{n}" }
+  end
 end
