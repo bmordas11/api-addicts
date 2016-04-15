@@ -5,9 +5,9 @@
   <div="row">
     <div class="medium-8 medium-centered columns">
       <%= form_for Api.new do |f| %>
-        <%= f.text_field :name, id: "Name", value: @api.name,  style: 'display: block; background-color: #7C8C91;' %>
-        <%= f.text_field :url, id: "URL", value: @api.url, style: 'display: block; background-color: #7C8C91;' %>
-        <%= f.text_field :description, id: "Description", value: @api.description, style:  'display: block; background-color: #7C8C91;' %>
+        <%= f.text_field :name, id: "Name",  style: 'display: block; background-color: #7C8C91;' %>
+        <%= f.text_field :url, id: "URL", style: 'display: block; background-color: #7C8C91;' %>
+        <%= f.text_field :description, id: "Description", style:  'display: block; background-color: #7C8C91;' %>
         <%= f.text_field :tags, value: "", id: "Tags", style: 'display: block; background-color: #7C8C91;' %>
         <%= f.select :category, options_for_select(Api::CATEGORIES) %>
         Paid?
