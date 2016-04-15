@@ -1,5 +1,5 @@
 window.onload = init();
-
+var category;
 function init(){
   var categories = $('#categories').children();
   for (var i = 0; i < categories.length; i++) {
@@ -13,7 +13,7 @@ function init(){
 }
 
 function changeApis() {
-  console.log('click');
+  category = event.currentTarget.id;
   var request = $.ajax({
     method: "GET",
     url: "/v1/change/" + event.currentTarget.id
@@ -23,7 +23,7 @@ function changeApis() {
   request.done(function(data) {
     debugger;
     destroyCurrent();
-    $('.trending-section').append( "<div class='large-title'>" + data[0].category + "</div>" );
+    $('.trending-section').append( "<div class='large-title'>" + category + "</div>" );
     $('.trending-section').append(data)
   });
 }
