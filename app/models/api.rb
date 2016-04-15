@@ -43,6 +43,6 @@ class Api < ActiveRecord::Base
     results += where("name LIKE ?", "%#{search}%")
     results += where("description LIKE ?", "%#{search}%")
     results += where("url LIKE ?", "%#{search}%")
-    results
+    results.uniq { |api| api.id }
   end
 end

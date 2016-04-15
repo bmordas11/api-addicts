@@ -7,7 +7,7 @@
           <%= link_to 'Edit Your Api', edit_api_path(@api) %>
           <%= link_to "Delete", @api, method: :delete, data: {confirm: "Really wanna delete this api?"} %>
         <% end %>
-        <div class="medium-1 columns" style="height: 200px; padding-left: 40px; padding-top: 90px;">
+        <div class="medium-1 columns" style="height: 200px; padding-left: 40px; padding-top: 70px;">
           <div class = "arrow-up" id="upvote"> <%= @upvotes %> </div>
           <div class = "arrow-down" id="downvote"> <%= @downvotes %> </div>
         </div>
