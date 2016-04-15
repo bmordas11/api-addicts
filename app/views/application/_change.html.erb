@@ -8,4 +8,7 @@
         </div>
     </div>
   </div>
+  <%= will_paginate @apis,
+  page_links: false,
+  renderer: FoundationPagination::Rails %>
 <% end %>
